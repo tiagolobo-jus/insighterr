@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="pt-BR" style=""><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PROJUDI - Processo 0855043-66.2025.8.23.0010</title>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- FontAwesome Icons for judicial icons & UI buttons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style data-purpose="system-theme">
+    body {
+      background-color: #f7f7f0;
+      color: #333333;
+      font-family: Arial, Helvetica, Tahoma, sans-serif;
+      font-size: 11px;
+      line-height: 1.35;
+    }
+
+    /* Estilo de fieldset e legend característicos do PROJUDI */
+    fieldset.projudi-frame {
+      border: 1px solid #c7c7be;
+      border-radius: 4px;
+      padding: 6px 10px 8px 10px;
+      margin-bottom: 8px;
+      background-color: #fcfcf7;
+    }
+
+    legend.projudi-legend {
+      font-size: 11px;
+      font-weight: bold;
+      color: #4a4a40;
+      padding: 0 4px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Abas clássicas do sistema PROJUDI */
+    .tab-item {
+      display: inline-block;
+      padding: 3px 10px;
+      border-top: 1px solid #b8b8ae;
+      border-left: 1px solid #b8b8ae;
+      border-right: 1px solid #b8b8ae;
+      border-bottom: 1px solid #b8b8ae;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+      font-size: 10px;
+      font-weight: bold;
+      color: #4b4b42;
+      background-color: #dfded5;
+      text-decoration: none;
+      cursor: pointer;
+      white-space: nowrap;
+      margin-right: -1px;
+      transition: background 0.15s ease-in-out;
+    }
+
+    .tab-item:hover {
+      background-color: #ebeae3;
+    }
+
+    .tab-item.active {
+      background-color: #fcfcf7;
+      border-bottom: 1px solid #fcfcf7;
+      color: #242420;
+    }
+
+    /* Botões padrão do PROJUDI */
+    .btn-projudi {
+      background: linear-gradient(to bottom, #ffffff 0%, #ecece5 100%);
+      border: 1px solid #b0b0a4;
+      border-radius: 3px;
+      padding: 2px 9px;
+      font-size: 11px;
+      color: #333333;
+      box-shadow: 0 1px 1px rgba(0,0,0,0.06);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+    }
+
+    .btn-projudi:hover {
+      background: linear-gradient(to bottom, #f9f9f5 0%, #e2e2da 100%);
+      border-color: #9c9c8e;
+    }
+
+    /* Inputs e caixas de texto */
+    .input-projudi {
+      border: 1px solid #b2b2a6;
+      border-radius: 2px;
+      padding: 1px 4px;
+      font-size: 11px;
+      background-color: #ffffff;
+      height: 20px;
+    }
+
+    .input-projudi:focus {
+      border-color: #60799f;
+      outline: none;
+    }
+
+    /* Badge para Intervenção do MP */
+    .badge-mp {
+      background-color: #fbf7db;
+      border: 1px solid #dcd18c;
+      border-radius: 3px;
+      color: #333333;
+      padding: 1px 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 10.5px;
+      box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+    }
+  </style>
+<link href="prototype.css" rel="stylesheet"/></head>
+<body class="p-2 antialiased selection:bg-blue-100 selection:text-black" data-prototype-page="projudi">
+<!-- BEGIN: TopStatusBar -->
+<header class="border-b border-[#ddddcf] pb-1.5 mb-2 text-[11px]" data-purpose="system-header">
+<div class="flex flex-wrap items-center justify-between gap-y-1">
+<!-- User Identification & Session Information -->
+<div class="flex flex-wrap items-center gap-x-2.5 text-[#55554f]">
+<span class="">
+<strong class="font-bold text-[#444]">Usuário:</strong>
+<span class="text-[#b74431] font-semibold">Fulado de tal</span></span>
+<span class="">
+<strong class="font-bold text-[#444]">Atribuição:</strong>
+<span class="text-[#ca5b2a] font-semibold">Servidor Judiciário (f3333333)</span>
+<i class="fa-regular fa-user text-[#8c8c7d] text-[10px] ml-0.5"></i>
+</span>
+<span class="">
+<strong class="font-bold text-[#444]">Atuação:</strong>
+<span class="text-[#b74431] font-semibold">Juizado Especial Cível</span> <i class="fa-solid fa-arrows-rotate text-[#8c8c7d] text-[10px] ml-0.5 cursor-pointer" title="Trocar atuação"></i>
+</span>
+<span class="">
+<strong class="font-bold text-[#444]">Data:</strong>
+<span class="text-[#b74431]">04/09/2026 10:45</span>
+</span>
+<span class="">
+<strong class="font-bold text-[#444]">Expira em:</strong>
+<span class="text-[#e26714] font-bold">47 min</span>
+</span>
+</div>
+<!-- Quick Action Utilities -->
+<nav class="flex items-center space-x-3 text-[#333333]" data-purpose="quick-navigation">
+<a class="hover:underline inline-flex items-center gap-1" href="#">
+<i class="fa-solid fa-magnifying-glass text-[10px] text-[#777]"></i> Processo
+        </a>
+<a class="hover:underline inline-flex items-center gap-1" href="#">
+<i class="fa-solid fa-pen-nib text-[10px] text-[#777]"></i> Histórico
+        </a>
+<a class="hover:underline inline-flex items-center gap-1" href="#">
+<i class="fa-regular fa-circle-question text-[11px] text-[#777]"></i> Ajuda
+        </a>
+<a class="hover:underline inline-flex items-center gap-1" href="#">
+<i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-[#777]"></i> Acessar Jus.br
+        </a>
+<button class="text-[#666] hover:text-red-700 font-bold ml-1 px-0.5" title="Fechar">✕</button>
+</nav>
+</div>
+</header>
+<!-- END: TopStatusBar -->
+<!-- BEGIN: ProcessIdentification -->
+<section class="mb-3" data-purpose="process-header">
+<!-- Process Number, Star and Duration -->
+<div class="flex items-center gap-1.5 pb-1 border-b border-[#a8a89c]">
+<h1 class="text-[13px] font-bold text-[#1a1a18]">
+        Processo 0855663-66.2025.7.27.6010
+      </h1>
+<i class="fa-regular fa-star text-[#555] text-xs cursor-pointer hover:text-amber-500" title="Favoritar processo"></i><div class="inline-flex items-center gap-1.5 px-2 py-0.5 ml-1 bg-gradient-to-r from-[#e6fcf5] to-[#ebf3ff] hover:from-[#d3f9ec] hover:to-[#dceaff] text-[#005236] border border-[#a2e9cb] rounded-full text-[11px] font-medium shadow-sm cursor-pointer transition-all hover:shadow hover:scale-[1.02] group select-none" title="InsightErr IA: Cluster de Acordo Identificado (#04 - 88.4% de probabilidade)"><img alt="InsightErr Logo" class="w-[18px] h-[18px] rounded-full object-contain border border-[#4edea3]/40 bg-white p-[1px]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYjhbNc-3p0B2Vnz2aOzIJcldJCyA6ES-5Rlc2UV_KeEtNzDHUVmtR1M3NRAHlqqE6xlo_3A4xuC5Fwu0oj7skt248GoNqb_g0E7d-d2R65TJGaBzeao1hhxt91zO0Cy-1SxQ7P3ztypc-8F3NGXQijRfxf0f817ykKxcGDdRZky0mBrpK-WYr1mROvJYhwfTBUKITOhbz2dI2AJO3ZjOMluKP1Yvw0tMsuyF3U57Es32Xb7BDt-aCLEAHuo3fowm3Qw"/><span class="flex items-center gap-1 font-semibold text-[#00236f]">InsightErr<span class="text-[#006c49] font-normal">| Cluster de Acordo (88.4%)</span></span><span class="relative flex h-2 w-2 ml-0.5"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#4edea3] opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-[#006c49]"></span></span></div>
+<span class="text-[#333] font-bold text-[12px]">- (283 dia(s) em tramitação)</span>
+</div>
+</section>
+<!-- END: ProcessIdentification -->
+<!-- BEGIN: ProcessMetadataAndAI -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-4 mb-2" data-purpose="process-details-container">
+<!-- Left Column: Process Details -->
+<div class="md:col-span-8 space-y-0.5 text-[11px] text-[#2c2c26]">
+<div class="flex items-baseline">
+<span class="w-48 text-right font-bold pr-2 text-[#4d4d44]">Classe Processual:</span>
+<span class="text-[#1f1f1d]">278 - Termo Circunstanciado</span>
+</div>
+<div class="flex items-baseline">
+<span class="w-48 text-right font-bold pr-2 text-[#4d4d44]">Assunto Principal:</span>
+<span class="text-[#1f1f1d]">3402 - Ameaça</span>
+</div>
+<div class="flex items-baseline">
+<span class="w-48 text-right font-bold pr-2 text-[#4d4d44]">Assuntos Secundários:</span>
+<span class="text-[#1f1f1d]">12345 - Vias de fato</span>
+</div>
+<div class="flex items-baseline">
+<span class="w-48 text-right font-bold pr-2 text-[#4d4d44]">Nível de Sigilo:</span>
+<span class="inline-flex items-center gap-1">
+<i class="fa-solid fa-pencil text-[9px] text-[#78786a] cursor-pointer" title="Editar Sigilo"></i>
+<span class="">Público</span>
+<i class="fa-solid fa-circle-info text-[10px] text-[#6b6b5d] cursor-pointer" title="Mais informações"></i>
+</span>
+</div>
+<div class="flex items-baseline">
+<span class="w-48 text-right font-bold pr-2 text-[#4d4d44]">Audiência:</span>
+<span class="inline-flex items-center gap-1">
+<i class="fa-solid fa-pencil text-[9px] text-[#78786a] cursor-pointer"></i>
+<span class="text-[#4b4b41]">Agendar</span>
+</span>
+</div>
+<div class="flex items-baseline">
+<span class="w-48 text-right font-bold pr-2 text-[#4d4d44]">Selos:</span>
+<span class="text-[#1f1f1d]">Sem selo</span>
+</div>
+<!-- Judicial Links Links -->
+<div class="pt-1 space-y-0.5">
+<div class="flex items-baseline">
+<span class="w-48 text-right font-bold pr-2 text-[#4d4d44]">Simplificar:</span>
+<a class="text-[#204a87] hover:underline break-all" href="https://simplificar.tjrr.jus.br/fluxos-da-area-judicial">
+            https://simplificar.tjrr.jus.br/fluxos-da-area-judicial
+          </a>
+</div>
+<div class="flex items-baseline">
+<span class="w-48 text-right font-bold pr-2 text-[#4d4d44]">Guia de Recolhimento de Custas:</span>
+<a class="text-[#204a87] hover:underline break-all" href="https://www.tjrr.jus.br/guia-arrecadacao/pages/publico/nova-guia-judicial">
+            https://www.tjrr.jus.br/guia-arrecadacao/pages/publico/nova-guia-judicial
+          </a>
+</div>
+<div class="flex items-baseline">
+<span class="w-48 text-right font-bold pr-2 text-[#4d4d44]">Banco de Peritos:</span>
+<a class="text-[#204a87] hover:underline break-all" href="https://www.tjrr.jus.br/index.php/credenciamentos-subalc">
+            https://www.tjrr.jus.br/index.php/credenciamentos-subalc
+          </a>
+</div>
+</div>
+</div>
+<!-- Right/Bottom AI Assistant Banner: ARANDU -->
+<div class="md:col-span-4 flex flex-col justify-start pl-2 pt-1" data-purpose="arandu-ai-banner">
+</div>
+</section>
+<!-- END: ProcessMetadataAndAI -->
+<!-- BEGIN: AnotacoesNosAutos -->
+<section data-purpose="anotacoes-section">
+<fieldset class="projudi-frame">
+<legend class="projudi-legend">
+<span class="">Anotações nos Autos</span>
+<i class="fa-solid fa-pencil text-[9px] text-[#737367] cursor-pointer" title="Editar anotações"></i>
+<i class="fa-solid fa-arrow-up text-[9px] text-[#737367] cursor-pointer" title="Recolher seção"></i>
+</legend>
+<div class="py-0.5">
+<span class="badge-mp">
+<i class="fa-solid fa-check text-[10px] text-[#347834]"></i>
+<span class="">Intervenção do MP</span>
+</span>
+</div>
+</fieldset>
+</section>
+<!-- END: AnotacoesNosAutos -->
+<!-- BEGIN: Pendencias -->
+<section data-purpose="pendencias-section">
+<fieldset class="projudi-frame">
+<legend class="projudi-legend">
+<span class="">Pendências</span>
+</legend>
+<div class="text-[11px] py-0.5 text-[#333]">
+<strong class="font-bold text-[#444]">Intimações:</strong>
+<i class="fa-solid fa-pencil text-[9px] text-[#737367] mx-1 cursor-pointer"></i>
+<span class="">Há 1 Intimação(ões) aguardando cumprimento de prazo <strong>(ONLINE) (1 URGENTE(S))</strong></span>
+</div>
+</fieldset>
+</section>
+<!-- END: Pendencias -->
+<!-- BEGIN: ActionButtonsBar -->
+<nav class="flex flex-wrap justify-end gap-1.5 mb-2 mt-2" data-purpose="process-actions-toolbar">
+<button class="btn-projudi">Pedido Incidental</button>
+<button class="btn-projudi">Juntar Documento</button>
+<button class="btn-projudi">Peticionar</button>
+<button class="btn-projudi">Patronato</button>
+<button class="btn-projudi">Navegar</button>
+<button class="btn-projudi">Exportar ▼</button>
+<button class="btn-projudi">Voltar</button>
+</nav>
+<!-- END: ActionButtonsBar -->
+<!-- BEGIN: TabsContainer -->
+<section data-purpose="tabs-navigation-panel">
+<!-- Tab Strip Header -->
+<div class="flex flex-wrap items-end pl-0 border-b border-[#b8b8ae] gap-0">
+<button class="tab-item">Informações Gerais</button>
+<button class="tab-item">Informações Adicionais</button>
+<button class="tab-item">Partes</button>
+<!-- Active Tab: Movimentações -->
+<button class="tab-item active border-b-transparent z-10 font-bold text-black pb-[4px]">Movimentações</button>
+<button class="tab-item">Apensamentos (0)</button>
+<button class="tab-item">Vínculos (0)</button>
+<button class="tab-item">HCs TJ (0)</button>
+<button class="tab-item">Incidentes (0)</button>
+<button class="tab-item">Mandados/Alvarás de Soltura (0)</button>
+<button class="tab-item">Prazos</button>
+<button class="tab-item">Guias</button>
+</div>
+<!-- Tab Body Content -->
+<div class="border-x border-b border-[#b8b8ae] bg-[#fcfcf7] p-2 rounded-b">
+<!-- Sub-bloco: Realces -->
+<fieldset class="projudi-frame mb-2 bg-[#fcfcf7]">
+<legend class="projudi-legend">
+<span class="">Realces</span>
+<i class="fa-solid fa-arrow-up text-[9px] text-[#737367] cursor-pointer"></i>
+</legend>
+<div class="space-y-1.5 py-0.5 text-[11px]">
+<!-- Realçar Movimentos -->
+<div class="flex flex-wrap items-center gap-x-4 gap-y-1">
+<span class="font-bold text-[#444] min-w-[130px]">Realçar Movimentos de:</span>
+<label class="inline-flex items-center gap-1 cursor-pointer">
+<input class="w-3.5 h-3.5 rounded-none border-[#999] text-[#444] focus:ring-0" type="checkbox"/> Magistrado
+            </label>
+<label class="inline-flex items-center gap-1 cursor-pointer">
+<input class="w-3.5 h-3.5 rounded-none border-[#999] text-[#444] focus:ring-0" type="checkbox"/> Servidor
+            </label>
+<label class="inline-flex items-center gap-1 cursor-pointer">
+<input class="w-3.5 h-3.5 rounded-none border-[#999] text-[#444] focus:ring-0" type="checkbox"/> Advogado
+            </label>
+<label class="inline-flex items-center gap-1 cursor-pointer">
+<input class="w-3.5 h-3.5 rounded-none border-[#999] text-[#444] focus:ring-0" type="checkbox"/> Membro MP
+            </label>
+<label class="inline-flex items-center gap-1 cursor-pointer">
+<input class="w-3.5 h-3.5 rounded-none border-[#999] text-[#444] focus:ring-0" type="checkbox"/> Defensor
+            </label>
+<label class="inline-flex items-center gap-1 cursor-pointer">
+<input class="w-3.5 h-3.5 rounded-none border-[#999] text-[#444] focus:ring-0" type="checkbox"/> Procurador
+            </label>
+<label class="inline-flex items-center gap-1 cursor-pointer">
+<input class="w-3.5 h-3.5 rounded-none border-[#999] text-[#444] focus:ring-0" type="checkbox"/> Outros
+            </label>
+<label class="inline-flex items-center gap-1 cursor-pointer">
+<input class="w-3.5 h-3.5 rounded-none border-[#999] text-[#444] focus:ring-0" type="checkbox"/> Audiência
+            </label>
+</div>
+<!-- Ocultar Movimentos -->
+<div class="flex flex-wrap items-center gap-x-4 gap-y-1">
+<span class="font-bold text-[#444] min-w-[130px]">Ocultar Movimentos:</span>
+<label class="inline-flex items-center gap-1 cursor-pointer">
+<input class="w-3.5 h-3.5 rounded-none border-[#999] text-[#444] focus:ring-0" type="checkbox"/> Inválidos
+            </label>
+<label class="inline-flex items-center gap-1 cursor-pointer">
+<input class="w-3.5 h-3.5 rounded-none border-[#999] text-[#444] focus:ring-0" type="checkbox"/> Sem Arquivo
+            </label>
+<label class="inline-flex items-center gap-1 cursor-pointer">
+<input class="w-3.5 h-3.5 rounded-none border-[#999] text-[#444] focus:ring-0" type="checkbox"/> Hab. Provisória
+            </label>
+</div>
+</div>
+</fieldset>
+<!-- Sub-bloco: Filtros -->
+<fieldset class="projudi-frame bg-[#fcfcf7]">
+<legend class="projudi-legend">
+<span class="">Filtros</span>
+<i class="fa-solid fa-circle-info text-[9px] text-[#737367] cursor-pointer"></i>
+<i class="fa-solid fa-arrow-up text-[9px] text-[#737367] cursor-pointer"></i>
+</legend>
+<div class="space-y-1.5 py-0.5 text-[11px]">
+<!-- Movimentado Por -->
+<div class="flex flex-wrap items-center gap-x-4 gap-y-1">
+<span class="font-bold text-[#444] min-w-[130px]">Movimentado Por:</span>
+<label class="inline-flex items-center gap-1 cursor-pointer">
+<input class="w-3.5 h-3.5 rounded-none border-[#999] text-[#444] focus:ring-0" type="checkbox"/> Advogado
+            </label>
+<label class="inline-flex items-center gap-1 cursor-pointer">
+<input class="w-3.5 h-3.5 rounded-none border-[#999] text-[#444] focus:ring-0" type="checkbox"/> Advogado NPJ
+            </label>
+<label class="inline-flex items-center gap-1 cursor-pointer">
+<input class="w-3.5 h-3.5 rounded-none border-[#999] text-[#444] focus:ring-0" type="checkbox"/> Entidades Remessa
+            </label>
+<label class="inline-flex items-center gap-1 cursor-pointer">
+<input class="w-3.5 h-3.5 rounded-none border-[#999] text-[#444] focus:ring-0" type="checkbox"/> Magistrado
+            </label>
+<label class="inline-flex items-center gap-1 cursor-pointer">
+<input class="w-3.5 h-3.5 rounded-none border-[#999] text-[#444] focus:ring-0" type="checkbox"/> Procurador
+            </label>
+<label class="inline-flex items-center gap-1 cursor-pointer">
+<input class="w-3.5 h-3.5 rounded-none border-[#999] text-[#444] focus:ring-0" type="checkbox"/> Servidor
+            </label>
+</div>
+<!-- Campos Sequencial e Período -->
+<div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+<span class="font-bold text-[#444] min-w-[130px]">Sequencial(Intervalo):</span>
+<input class="input-projudi w-16" title="Início intervalo sequencial" type="text"/>
+<span class="">ao</span>
+<input class="input-projudi w-16" title="Fim intervalo sequencial" type="text"/>
+<span class="font-bold text-[#444] ml-4">Data do Movimento(Período):</span>
+<div class="inline-flex items-center gap-1">
+<input class="input-projudi w-28" placeholder="dd/mm/aaaa" type="text"/>
+<i class="fa-regular fa-calendar-days text-[#666] text-xs cursor-pointer" title="Selecionar data inicial"></i>
+</div>
+<span class="">à</span>
+<div class="inline-flex items-center gap-1">
+<input class="input-projudi w-28" placeholder="dd/mm/aaaa" type="text"/>
+<i class="fa-regular fa-calendar-days text-[#666] text-xs cursor-pointer" title="Selecionar data final"></i>
+</div>
+</div>
+<!-- Descrição e Botão Filtrar -->
+<div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+<span class="font-bold text-[#444] min-w-[130px]">Descrição:</span>
+<input class="input-projudi w-72" type="text"/>
+</div>
+<!-- Action Button Centralized/Aligned -->
+<div class="flex justify-center pt-1">
+<button class="btn-projudi px-6 font-normal">Filtrar</button>
+</div>
+</div>
+</fieldset>
+</div>
+</section>
+<!-- END: TabsContainer -->
+<!-- BEGIN: PaginationFooter -->
+<footer class="flex flex-wrap items-center justify-between text-[11px] text-[#444] pt-2 px-1" data-purpose="pagination-bar">
+<!-- Quantity of registers -->
+<div>
+<span class="">55 registro(s) encontrado(s), exibindo de 1 até 55</span>
+</div>
+<!-- Navigation controls -->
+<div class="flex items-center gap-1">
+<div class="relative inline-block mr-1">
+<select class="input-projudi text-[11px] py-0 pr-5 pl-1.5 cursor-pointer appearance-none bg-white">
+<option>500 por pág.</option>
+<option>100 por pág.</option>
+<option>50 por pág.</option>
+</select>
+<span class="pointer-events-none absolute right-1.5 top-1/2 -translate-y-1/2 text-[9px] text-[#666]">▼</span>
+</div>
+<!-- Pagination icons: |<< < 1 > >>| -->
+<button class="px-1 text-[#888] hover:text-black font-semibold cursor-pointer" title="Primeira página">|&lt;&lt;</button>
+<button class="px-1 text-[#888] hover:text-black font-semibold cursor-pointer" title="Página anterior">&lt;</button>
+<span class="px-1.5 py-0.5 bg-[#ebeae0] border border-[#b4b4a6] text-black font-bold text-[10px]">1</span>
+<button class="px-1 text-[#888] hover:text-black font-semibold cursor-pointer" title="Próxima página">&gt;</button>
+<button class="px-1 text-[#888] hover:text-black font-semibold cursor-pointer" title="Última página">&gt;&gt;|</button>
+</div>
+</footer>
+<!-- END: PaginationFooter -->
+<script src="prototype.js"></script></body></html>

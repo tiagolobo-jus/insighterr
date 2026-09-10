@@ -1,0 +1,166 @@
+/* Responsive fixes scoped to Oportunidades Nacionais */
+html {
+  width: auto !important;
+  height: auto !important;
+  min-height: 100% !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  position: static !important;
+  scroll-behavior: smooth;
+}
+
+body[data-prototype-page="nacional"] {
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 100vh !important;
+  overflow-x: hidden !important;
+  overflow-y: visible !important;
+  overscroll-behavior: auto !important;
+}
+
+html::-webkit-scrollbar,
+body[data-prototype-page="nacional"]::-webkit-scrollbar,
+body[data-prototype-page="nacional"] .ie-national-graph-scroll::-webkit-scrollbar,
+body[data-prototype-page="nacional"] .overflow-x-auto::-webkit-scrollbar {
+  display: block !important;
+  width: 10px;
+  height: 10px;
+}
+
+html::-webkit-scrollbar-thumb,
+body[data-prototype-page="nacional"] .ie-national-graph-scroll::-webkit-scrollbar-thumb,
+body[data-prototype-page="nacional"] .overflow-x-auto::-webkit-scrollbar-thumb {
+  background: #aeb4bf;
+  border-radius: 999px;
+}
+
+html::-webkit-scrollbar-track,
+body[data-prototype-page="nacional"] .ie-national-graph-scroll::-webkit-scrollbar-track,
+body[data-prototype-page="nacional"] .overflow-x-auto::-webkit-scrollbar-track {
+  background: #eef0f3;
+}
+
+body[data-prototype-page="nacional"] .ie-national-shell,
+body[data-prototype-page="nacional"] .ie-national-main,
+body[data-prototype-page="nacional"] .ie-national-main > div,
+body[data-prototype-page="nacional"] .grid > * {
+  min-width: 0;
+}
+
+body[data-prototype-page="nacional"] .ie-national-mobile-nav {
+  display: none;
+}
+
+body[data-prototype-page="nacional"] .ie-national-graph-scroll {
+  width: 100%;
+  min-width: 0;
+  overflow: visible;
+}
+
+body[data-prototype-page="nacional"] .ie-national-graph-canvas {
+  min-width: 0;
+}
+
+@media (max-width: 1100px) {
+  body[data-prototype-page="nacional"] .ie-national-sidebar {
+    display: none !important;
+  }
+
+  body[data-prototype-page="nacional"] .ie-national-shell {
+    padding-left: 0 !important;
+  }
+
+  body[data-prototype-page="nacional"] .ie-national-mobile-nav {
+    position: sticky;
+    top: 64px;
+    z-index: 35;
+    display: flex;
+    align-items: stretch;
+    gap: 6px;
+    overflow-x: auto;
+    padding: 8px 12px;
+    background: rgba(255,255,255,.97);
+    border-bottom: 1px solid #e1e3e4;
+    box-shadow: 0 2px 8px rgba(0,0,0,.04);
+    -webkit-overflow-scrolling: touch;
+  }
+
+  body[data-prototype-page="nacional"] .ie-national-mobile-nav a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-height: 40px;
+    padding: 7px 12px;
+    border-radius: 9px;
+    white-space: nowrap;
+    color: #444651;
+    text-decoration: none;
+    font: 600 12px/1.2 Inter, Arial, sans-serif;
+  }
+
+  body[data-prototype-page="nacional"] .ie-national-mobile-nav a.is-active {
+    background: #1e3a8a;
+    color: #fff;
+  }
+
+  body[data-prototype-page="nacional"] .ie-national-mobile-nav .material-symbols-outlined {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 767px) {
+  body[data-prototype-page="nacional"] .ie-national-topbar {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  body[data-prototype-page="nacional"] .ie-national-main .px-container-padding {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+
+  body[data-prototype-page="nacional"] .ie-national-main .p-container-padding {
+    padding: 14px !important;
+  }
+
+  body[data-prototype-page="nacional"] .ie-national-main .py-stack-lg {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+  }
+
+  body[data-prototype-page="nacional"] .ie-national-main .text-headline-xl {
+    font-size: 25px !important;
+    line-height: 32px !important;
+  }
+
+  body[data-prototype-page="nacional"] .ie-national-graph-scroll {
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    border-radius: 12px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: auto;
+  }
+
+  body[data-prototype-page="nacional"] .ie-national-graph-canvas {
+    width: 760px !important;
+    min-width: 760px !important;
+    max-width: none !important;
+  }
+
+  body[data-prototype-page="nacional"] .overflow-x-auto {
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: auto;
+  }
+}
+
+@media (max-width: 420px) {
+  body[data-prototype-page="nacional"] .ie-national-topbar .gap-stack-md {
+    gap: 8px !important;
+  }
+
+  body[data-prototype-page="nacional"] .ie-national-mobile-nav {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}

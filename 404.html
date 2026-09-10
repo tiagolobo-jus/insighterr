@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-BR" style=""><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Projudi - Processo Eletrônico do Judiciário de Roraima</title>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- BEGIN: Custom Typography and Base Styling -->
+<style data-purpose="base-styling">
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #f7f7ee;
+      color: #333333;
+      margin: 0;
+      padding: 0;
+      font-size: 11px;
+    }
+
+    /* Top banner classic navy blue */
+    .projudi-header-bg {
+      background: linear-gradient(180deg, #103b5c 0%, #0d2a42 100%);
+    }
+
+    /* Classic legacy tab styles */
+    .tab-item {
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+      border: 1px solid #7c8874;
+      border-bottom: none;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .tab-active {
+      background-color: #fcfcf7;
+      border-color: #84917d;
+      font-weight: bold;
+      color: #333333;
+      position: relative;
+      bottom: -1px;
+      z-index: 10;
+    }
+
+    .tab-inactive {
+      background-color: #cfd4c7;
+      color: #3a4433;
+    }
+    
+    .tab-inactive:hover {
+      background-color: #dce0d6;
+    }
+
+    /* Content container matching classic tab style */
+    .tab-content-panel {
+      border: 1px solid #84917d;
+      background-color: #fcfcf7;
+    }
+
+    /* Subtle section separator */
+    .projudi-divider {
+      border-bottom: 1px solid #dcded2;
+    }
+
+    .section-title {
+      color: #5c6b53;
+      font-weight: bold;
+      font-size: 13px;
+    }
+
+    /* Link and alert colors */
+    .alert-orange {
+      color: #d84a1b;
+    }
+
+    .alert-link {
+      color: #cc0000;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .alert-link:hover {
+      color: #990000;
+    }
+
+    .news-novo {
+      color: #d00000;
+      font-weight: bold;
+      font-style: italic;
+    }
+  </style>
+<!-- END: Custom Typography and Base Styling -->
+<link href="prototype.css" rel="stylesheet"/></head>
+<body class="min-h-screen text-[11px] leading-tight flex flex-col justify-start" data-prototype-page="mesa">
+<!-- BEGIN: MainHeader -->
+<header class="w-full">
+<!-- Top Dark Blue Banner -->
+<div class="projudi-header-bg px-3 py-1.5 border-b border-[#081e30] shadow-sm" data-purpose="system-title-banner">
+<h1 class="text-white text-[15px] font-bold tracking-tight select-none">
+        Projudi - Processo Eletrônico do Judiciário de Roraima
+      </h1>
+</div>
+<!-- Main Navigation Bar -->
+<nav class="bg-[#f0f0e8] border-b border-[#c8ccc0] px-2 py-1 flex flex-wrap items-center gap-x-2 text-[11px] text-[#003366]" data-purpose="top-navigation">
+<a class="hover:underline hover:text-[#c02b00] px-0.5" href="#">Início</a>
+<span class="text-gray-400 select-none">|</span>
+<a class="hover:underline hover:text-[#c02b00] px-0.5" href="#">Processos</a>
+<span class="text-gray-400 select-none">|</span>
+<a class="hover:underline hover:text-[#c02b00] px-0.5" href="#">Citações e Notificações</a>
+<span class="text-gray-400 select-none">|</span>
+<a class="hover:underline hover:text-[#c02b00] px-0.5" href="#">Intimações</a>
+<span class="text-gray-400 select-none">|</span>
+<a class="hover:underline hover:text-[#c02b00] px-0.5" href="#">Decurso de Prazo</a>
+<span class="text-gray-400 select-none">|</span>
+<a class="hover:underline hover:text-[#c02b00] px-0.5" href="#">Análise de Juntadas</a>
+<span class="text-gray-400 select-none">|</span>
+<a class="hover:underline hover:text-[#c02b00] px-0.5" href="#">Audiências</a>
+<span class="text-gray-400 select-none">|</span>
+<a class="hover:underline hover:text-[#c02b00] px-0.5" href="#">Cumprimentos</a>
+<span class="text-gray-400 select-none">|</span>
+<a class="hover:underline hover:text-[#c02b00] px-0.5" href="#">Minutas</a>
+<span class="text-gray-400 select-none">|</span>
+<a class="hover:underline hover:text-[#c02b00] px-0.5" href="#">Relatórios/Estatísticas</a>
+<span class="text-gray-400 select-none">|</span>
+<a class="hover:underline hover:text-[#c02b00] px-0.5" href="#">Cadastro</a>
+<span class="text-gray-400 select-none">|</span>
+<a class="hover:underline hover:text-[#c02b00] px-0.5" href="#">Outros</a>
+</nav>
+<!-- User Information Bar -->
+<div class="bg-[#fcfcf7] border-b border-[#d8dcd0] px-3 py-1.5 flex flex-wrap items-center gap-y-1 text-[11px] text-[#222222]" data-purpose="user-status-bar">
+<!-- User info -->
+<div class="flex items-center space-x-1 mr-3">
+<span class="font-bold text-[#333333]">Usuário:</span>
+<span class="alert-orange font-semibold">FULANO DE TAL</span>
+</div>
+<!-- Role / Attribution -->
+<div class="flex items-center space-x-1 mr-2">
+<span class="font-bold text-[#333333]">Atribuição:</span>
+<span class="alert-orange">Servidor Judiciário (fulano.detal)</span>
+</div>
+<!-- User avatar icon -->
+<div class="mr-3 flex items-center text-[#5c6853]">
+<svg class="w-3.5 h-3.5" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"></path>
+</svg>
+</div>
+<!-- Court / Vara designation -->
+<div class="flex items-center space-x-1 mr-1">
+<span class="font-bold text-[#333333]">Atuação:</span>
+<span class="alert-orange font-semibold">Vara Cível Única </span>
+</div>
+<!-- Refresh action icon -->
+<button class="mr-4 text-gray-600 hover:text-black" title="Atualizar atuação" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- Timestamp -->
+<div class="flex items-center space-x-1 mr-4">
+<span class="font-bold text-[#333333]">Data:</span>
+<span class="alert-orange font-normal">03/09/2026 14:45</span>
+</div>
+<!-- Session timeout warning -->
+<div class="flex items-center space-x-1">
+<span class="font-bold text-[#333333]">Expira em:</span>
+<span class="alert-orange font-semibold">60 min</span>
+</div>
+</div>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: MainContent -->
+<main class="flex-1 w-full px-3 py-3" data-purpose="server-desk-container">
+<!-- Page Title -->
+<div class="pb-2">
+<h2 class="text-[#55694a] text-[18px] font-bold tracking-tight">
+        Mesa do Servidor Judiciário
+      </h2>
+<div class="w-full border-b border-[#a2ac98] mt-1 mb-2"></div>
+</div>
+<!-- BEGIN: TabsNavigation -->
+<div class="flex items-end gap-1 text-[11px] pt-1 pl-1" role="tablist">
+<!-- Active Tab: Início -->
+<button aria-selected="true" class="tab-item tab-active px-6 py-1.5 border-b-0 -mb-[1px]" role="tab">
+        Início
+      </button>
+<!-- Inactive Tab: Citações e Intimações -->
+<button aria-selected="false" class="tab-item tab-inactive px-4 py-1 hover:brightness-105" role="tab">
+        Citações e Intimações
+      </button>
+<!-- Inactive Tab: Análise de Juntadas -->
+<button aria-selected="false" class="tab-item tab-inactive px-4 py-1 hover:brightness-105" role="tab">
+        Análise de Juntadas
+      </button>
+<!-- Inactive Tab: Outros Cumprimentos -->
+<button aria-selected="false" class="tab-item tab-inactive px-4 py-1 hover:brightness-105" role="tab">
+        Outros Cumprimentos
+      </button>
+<!-- Inactive Tab: Lembretes -->
+<button aria-selected="false" class="tab-item tab-inactive px-5 py-1 hover:brightness-105" role="tab">
+        Lembretes
+      </button>
+</div>
+<!-- END: TabsNavigation -->
+<!-- BEGIN: TabPanelContent -->
+<div class="tab-content-panel p-5 min-h-[360px] shadow-sm">
+<!-- SECTION 1: Dados do Juízo -->
+<section class="mb-5" data-purpose="court-details">
+<h3 class="section-title mb-1.5 font-bold">Dados do Juízo</h3>
+<div class="projudi-divider pb-3.5 pl-24 flex items-center">
+<span class="font-bold text-[#333333] mr-2">Nome:</span>
+<!-- Edit Pencil Icon -->
+<svg class="w-3.5 h-3.5 text-gray-500 mr-1.5 inline-block cursor-pointer hover:text-black" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
+</svg>
+<span class="text-[#2b3323] font-medium">Vara Cível Única </span>
+</div>
+</section>
+<!-- SECTION 2: Processos Ativos -->
+<section class="mb-5" data-purpose="active-cases">
+<h3 class="section-title mb-1.5 font-bold">Processos Ativos</h3>
+<div class="projudi-divider pb-4 flex flex-col space-y-2 pl-6">
+<!-- Eletrônicos -->
+<div class="flex items-center pl-20">
+<span class="font-bold text-[#333333] w-28 text-right mr-2">Eletrônicos:</span>
+<span class="text-[#2b3323] font-normal">289</span>
+</div>
+<!-- Físicos -->
+<div class="flex items-center pl-20">
+<span class="font-bold text-[#333333] w-28 text-right mr-2">Físicos:</span>
+<div class="flex items-center space-x-1.5">
+<span class="text-[#333333]">--</span>
+<span class="text-gray-500">[</span>
+<button class="flex items-center space-x-0.5 text-[#003366] hover:underline" type="button">
+<svg class="w-3 h-3 text-gray-600 inline" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
+</svg>
+<span class="">Atualizar</span>
+</button>
+<span class="text-gray-500">]</span>
+</div>
+</div>
+<!-- Processos Paralisados (+30 dias) -->
+<div class="flex flex-wrap items-center pt-1">
+<span class="font-bold text-[#333333] mr-1.5">Processos Paralisados (+30 dias):</span>
+<div class="flex items-center space-x-1 mr-4">
+<span class="text-[#333333]">Secretaria:</span>
+<a class="alert-link font-normal" href="#">10</a>
+</div>
+<div class="flex items-center space-x-1 mr-4">
+<span class="text-[#333333]">Em Remessa:</span>
+<a class="alert-link font-normal" href="#">26</a>
+</div>
+<div class="flex items-center space-x-1">
+<span class="text-[#333333]">Em Remessa (exceto processos conclusos):</span>
+<a class="alert-link font-normal" href="#">1</a>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 3: Últimas Mensagens -->
+<section data-purpose="latest-messages">
+<h3 class="section-title mb-2 font-bold">Últimas Mensagens</h3>
+<div class="flex flex-col space-y-1.5 pl-6">
+<!-- Mensagem 1 -->
+<div class="flex items-center">
+<span class="font-bold text-[#333333] w-24 text-right mr-2">08/02/2018:</span>
+<div class="flex items-center">
+<svg class="w-3.5 h-3.5 text-gray-500 mr-1.5 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
+</svg>
+<a class="text-[#333333] hover:underline" href="#">
+                Relação atualizada de parceiros conveniados <span class="news-novo">(NOVO!)</span>
+</a>
+</div>
+</div>
+<!-- Mensagem 2 -->
+<div class="flex items-center">
+<span class="font-bold text-[#333333] w-24 text-right mr-2">04/12/2017:</span>
+<div class="flex items-center">
+<svg class="w-3.5 h-3.5 text-gray-500 mr-1.5 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
+</svg>
+<a class="text-[#333333] hover:underline" href="#">
+                Participe da homologação do Projudi <span class="news-novo">(NOVO!)</span>
+</a>
+</div>
+</div>
+<!-- Mensagem 3 -->
+<div class="flex items-center">
+<span class="font-bold text-[#333333] w-24 text-right mr-2">04/09/2017:</span>
+<div class="flex items-center">
+<svg class="w-3.5 h-3.5 text-gray-500 mr-1.5 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
+</svg>
+<a class="text-[#333333] hover:underline" href="#">
+                Juntada de mídias de audiência no Projudi <span class="news-novo">(NOVO!)</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- END: TabPanelContent -->
+</main>
+<!-- END: MainContent -->
+<!-- BEGIN: Interactive Tab Switching Script -->
+<script data-purpose="tab-interactivity">
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabs = document.querySelectorAll('[role="tab"]');
+      tabs.forEach(tab => {
+        tab.addEventListener('click', (e) => {
+          tabs.forEach(t => {
+            t.classList.remove('tab-active', 'font-bold', '-mb-[1px]');
+            t.classList.add('tab-inactive');
+            t.setAttribute('aria-selected', 'false');
+          });
+          e.currentTarget.classList.add('tab-active', 'font-bold', '-mb-[1px]');
+          e.currentTarget.classList.remove('tab-inactive');
+          e.currentTarget.setAttribute('aria-selected', 'true');
+        });
+      });
+    });
+  </script>
+<!-- END: Interactive Tab Switching Script -->
+<aside aria-live="polite" class="fixed bottom-5 right-5 z-50 max-w-sm w-full bg-white/95 backdrop-blur-md rounded-xl shadow-2xl border border-[#b6c4ff]/60 text-slate-800 p-4 transition-all duration-300 animate-slide-in" id="insighterr-notification" style="box-shadow: rgba(0, 35, 111, 0.15) 0px 10px 25px -5px, rgba(0, 35, 111, 0.1) 0px 8px 10px -6px; font-family: Inter, system-ui, -apple-system, sans-serif;"><div class="flex items-start gap-3.5"><div class="relative flex-shrink-0"><div class="w-11 h-11 rounded-lg bg-[#f8f9fa] border border-[#dce1ff] p-1 flex items-center justify-center shadow-inner"><img alt="Logo InsightErr" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1gPGieoxMu6nGY7W_7t4lOY0KifLtaLGwD7nO2SX_MGTk-girNyIkJbweUVZf3OhFzXqxNXV65-YfS0AU2Dh9CTkumtVnPUCC7qUTDuWOWbLWpseJnfKGrpYi-ketGigvxhd1Z6_m0WYv3mcF5ETv2YraHkySZ9JPyDIi6LmuWc0gpQ_Tg6wnBynQi6niAJkFO9Qe4Pj9ID7zrQ0tYAX9410gN62PuTVrmkh-e34DQRDVp-GHWLNrp0Yfd5ZHeo_HXA"/></div><span class="absolute -top-1 -right-1 flex h-3 w-3"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#4edea3] opacity-75"></span><span class="relative inline-flex rounded-full h-3 w-3 bg-[#006c49]"></span></span></div><div class="flex-1 min-w-0"><div class="flex items-center justify-between gap-1 mb-1"><div class="flex items-center gap-1.5 flex-wrap"><h4 class="text-[13px] font-bold text-[#00236f] tracking-tight leading-snug">InsightErr</h4><span class="px-1.5 py-0.5 text-[9.5px] font-semibold bg-[#6ffbbe]/30 text-[#005236] border border-[#4edea3]/40 rounded-full leading-none">IA Ativa</span></div><button aria-label="Fechar" class="text-gray-400 hover:text-gray-600 rounded-md p-0.5 hover:bg-gray-100 transition-colors" onclick="document.getElementById('insighterr-notification').remove()" title="Fechar notificação" type="button"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"></path></svg></button></div><p class="text-[11px] font-semibold text-slate-700 leading-normal mb-1">Oportunidades de Conciliação</p><p class="text-[10.5px] text-slate-600 leading-relaxed mb-3">Identificados <strong class="text-[#00236f] font-bold">248 processos</strong> na unidade com alto potencial de acordo (<span class="text-[#006c49] font-semibold">score &gt; 80%</span>). Deseja analisar o acervo prioritário?</p><div class="flex items-center gap-2"><button class="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-1.5 bg-[#00236f] hover:bg-[#1e3a8a] text-white text-[11px] font-medium rounded-lg shadow transition-colors" type="button"><svg class="w-3 h-3 text-[#6ffbbe]" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="">Ver Processos</span></button><button class="px-2.5 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-600 text-[11px] font-medium rounded-lg transition-colors" onclick="document.getElementById('insighterr-notification').remove()" type="button">Depois</button></div></div></div></aside><script src="prototype.js"></script></body></html>

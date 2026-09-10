@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html class="light" lang="pt-BR" style=""><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Explorador de Similaridade e Acordos - InsightErr</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary": "#ffffff",
+                      "surface": "#f8f9fa",
+                      "surface-container-lowest": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "on-primary-fixed": "#00164e",
+                      "primary": "#00236f",
+                      "inverse-surface": "#2e3132",
+                      "tertiary-container": "#5c3800",
+                      "on-tertiary-fixed-variant": "#653e00",
+                      "error-container": "#ffdad6",
+                      "inverse-primary": "#b6c4ff",
+                      "primary-container": "#1e3a8a",
+                      "on-error": "#ffffff",
+                      "inverse-on-surface": "#f0f1f2",
+                      "on-primary-container": "#90a8ff",
+                      "primary-fixed": "#dce1ff",
+                      "secondary-fixed": "#6ffbbe",
+                      "surface-tint": "#4059aa",
+                      "on-secondary-fixed": "#002113",
+                      "on-background": "#191c1d",
+                      "on-secondary": "#ffffff",
+                      "surface-container-high": "#e7e8e9",
+                      "on-tertiary-fixed": "#2a1700",
+                      "on-surface-variant": "#444651",
+                      "on-secondary-fixed-variant": "#005236",
+                      "on-primary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "primary-fixed-dim": "#b6c4ff",
+                      "surface-container": "#edeeef",
+                      "tertiary-fixed": "#ffddb8",
+                      "on-primary-fixed-variant": "#264191",
+                      "surface-dim": "#d9dadb",
+                      "on-secondary-container": "#00714d",
+                      "on-surface": "#191c1d",
+                      "background": "#f8f9fa",
+                      "secondary-fixed-dim": "#4edea3",
+                      "surface-variant": "#e1e3e4",
+                      "surface-bright": "#f8f9fa",
+                      "secondary": "#006c49",
+                      "outline": "#757682",
+                      "secondary-container": "#6cf8bb",
+                      "surface-container-low": "#f3f4f5",
+                      "outline-variant": "#c5c5d3",
+                      "on-tertiary-container": "#ef9900",
+                      "surface-container-highest": "#e1e3e4",
+                      "tertiary-fixed-dim": "#ffb95f",
+                      "tertiary": "#3e2400"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "container-padding": "24px",
+                      "stack-lg": "32px",
+                      "unit": "8px",
+                      "gutter": "16px",
+                      "stack-sm": "8px",
+                      "stack-md": "16px"
+              },
+              "fontFamily": {
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ],
+                      "headline-xl": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "headline-lg": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-md": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-sm": [
+                              "11px",
+                              {
+                                      "lineHeight": "14px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-xl": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .filled-icon { font-variation-settings: 'FILL' 1; }
+        
+        /* Custom Scrollbar for sidebars/tables if needed */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #c5c5d3; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #757682; }
+    </style>
+<link href="prototype.css" rel="stylesheet"/></head>
+<body class="bg-surface text-on-surface flex min-h-screen" data-prototype-page="clusters">
+<!-- SideNavBar (Desktop) -->
+<nav class="hidden md:flex bg-surface-container-lowest shadow-sm fixed left-0 top-0 h-full w-64 flex-col border-r border-outline-variant z-40 transition-all duration-200 ease-in-out">
+<div class="p-container-padding flex flex-col gap-stack-md h-full">
+<div class="flex items-center gap-unit mb-stack-lg">
+<img alt="InsightErr Logo" class="w-10 h-10 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUDxlnEUOkZWO520JiSAubsHXl1tnvm1YbdNK1Dto4quwUa5y1dDjVl3ZnVg3daIw7noo7kKJWmsrOF7d9UTJ1AmX5WOTW9_XT8hTe3L0viaNhLMfS1FJsBOdzd41T8vd85_3ApXR5Qq3M3W-l1SfMQRA4L1jyjaIbcvaW4iA2HxSTDfC-34g-nf4ahrdDZcF6ohGbdDw-yq7_-Gpc28ftLIgGPNtxGmWSElRKctU0Kg-ge5Ljd25sEURvAW1qkXpZZw"/>
+<div>
+<h1 class="font-headline-sm text-headline-md font-black text-primary">InsightErr</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Analítica Jurídica</p>
+</div>
+</div>
+<button class="bg-primary text-on-primary w-full py-2 px-4 rounded-lg font-label-md text-label-md flex items-center justify-center gap-2 hover:opacity-90 transition-opacity mb-4 shadow-sm">
+<span class="material-symbols-outlined filled-icon" style="font-size: 18px;">add</span>
+                Nova Análise
+            </button>
+<div class="flex flex-col gap-unit flex-1">
+<a class="flex items-center gap-3 p-3 bg-secondary-container text-on-secondary-container rounded-lg font-label-md text-label-md font-bold transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined filled-icon">account_tree</span>
+                    Explorador de Similaridades
+                </a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">gavel</span>
+                    Avaliação de Processo
+                </a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">public</span>
+                    Oportunidades Nacionais
+                </a>
+</div>
+<div class="flex flex-col gap-unit mt-auto border-t border-outline-variant pt-4">
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">help</span>
+                    Suporte
+                </a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">logout</span>
+                    Sair
+                </a>
+</div>
+</div>
+</nav>
+<!-- TopNavBar (Mobile) -->
+<header class="md:hidden flex justify-between items-center w-full px-container-padding h-16 fixed top-0 z-50 bg-surface border-b border-outline-variant flat no shadows">
+<div class="flex items-center gap-2">
+<img alt="Avatar do Usuário Jurídico" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7UWG7FlOc5qB8NYrdu6yg3Aec4alAGaBfiIOf4GkHj4DvDGb0E100OgU_97ye9i2Kno6GNUetMhWObh2AdZPoe8rQMTtoncqaNeTOb5QRoI-A0YY74QB7lIgilkwTXRvl38E1uyTmN7gdK3eCwnGDlOPGD2xgeSKe-ZzIk99rOdHCxirVRrb4fjiVCldC-1omMToQwVe6S_JioihGzDjmZPt6-zk4TNlO4T_jxOz-v2FPC_aqHEoYP5nrghm44hAnWg"/>
+<span class="font-headline-md text-headline-md font-bold text-primary">InsightErr</span>
+</div>
+<div class="flex items-center gap-4 text-primary">
+<button class="hover:bg-surface-container-high transition-colors p-2 rounded-full opacity-80 duration-200">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="hover:bg-surface-container-high transition-colors p-2 rounded-full opacity-80 duration-200">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 md:ml-64 pt-16 md:pt-0 min-h-screen bg-background">
+<div class="max-w-7xl mx-auto p-container-padding">
+<!-- Header Section -->
+<div class="mb-stack-lg"><div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4"><div class="flex-1"><div class="flex items-center gap-2 mb-unit"><h2 class="font-headline-xl text-headline-xl text-on-background">Análise de Similaridade de Casos</h2></div><p class="font-body-lg text-body-lg text-on-surface-variant">Explore clusters de processos com alto potencial de acordo baseado em precedentes.</p></div><div class="flex items-center gap-2 bg-surface-container-lowest border border-outline-variant/50 p-2 rounded-xl shadow-sm"><div class="flex items-center justify-center w-8 h-8 rounded-lg bg-primary/10 text-primary"><span class="material-symbols-outlined text-[20px]">account_balance</span></div><div class="flex flex-col"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Unidade Judiciária</span><div class="relative flex items-center cursor-pointer"><select class="bg-transparent font-label-md text-label-md font-bold text-primary focus:outline-none cursor-pointer pr-6 py-0.5 border-none"><option selected="" value="1vc-bv">1ª Vara Cível de Boa Vista - TJRR</option><option value="2vc-bv">2ª Vara Cível de Boa Vista - TJRR</option><option value="jec-bv">Juizado Especial Cível - TJRR</option><option value="cejusc-bv">CEJUSC Boa Vista - TJRR</option><option value="turma-rec">Turma Recursal Mista - TJRR</option></select><span class="material-symbols-outlined text-[16px] text-primary absolute right-0 pointer-events-none">expand_more</span></div></div><div class="hidden sm:flex items-center gap-1 bg-secondary-container/50 text-on-secondary-container px-2 py-1 rounded-md text-label-sm font-medium"><span class="material-symbols-outlined text-[14px]">verified</span>Ativa</div></div></div></div>
+<!-- Confidence Metric Card -->
+<!-- Clusters Section -->
+<div class="mb-stack-lg">
+<h3 class="font-headline-md text-headline-md text-on-background mb-stack-md flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">hub</span>
+                    Clusters Identificados
+                </h3><div class="mb-stack-md flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3"><div class="relative flex-1 max-w-md"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span><input class="w-full pl-10 pr-4 py-2 bg-surface-container-lowest border border-outline-variant/50 rounded-lg font-body-sm text-on-surface focus:outline-none focus:border-primary transition-colors" placeholder="Filtrar clusters..." type="text"/></div><button class="flex items-center justify-center gap-1.5 px-4 py-2 bg-surface-container-lowest border border-primary text-primary hover:bg-primary/5 rounded-lg font-label-md text-label-md font-bold transition-colors shadow-sm"><span class="material-symbols-outlined text-[18px]">add_circle</span>Mais clusters</button></div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter"><!-- Cluster Card 1 (Compact) -->
+<div class="bg-surface-container-lowest rounded-xl p-4 shadow-sm border border-outline-variant/30 hover:border-primary/50 transition-colors flex flex-col h-full relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-20 h-20 bg-secondary-container/20 rounded-bl-full -z-10 transition-transform group-hover:scale-110"></div>
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline-sm text-body-lg text-primary font-bold">Atraso de Voo - Companhia X</h4>
+<span class="bg-secondary-container text-on-secondary-container font-label-sm text-label-sm px-2 py-0.5 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">done_all</span>
+Alto Potencial
+</span>
+</div>
+<div class="grid grid-cols-2 gap-2 mb-3">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Processos Similares</p>
+<p class="font-headline-md text-headline-sm font-bold text-on-background">142</p>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Acordos Históricos</p>
+<p class="font-headline-md text-headline-sm text-secondary font-bold">87%</p>
+</div>
+<div class="col-span-2 border-t border-outline-variant/30 pt-2">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Valor Médio de Acordo</p>
+<p class="font-body-md text-body-sm text-on-background font-medium">R$ 3.500,00 - R$ 5.000,00</p>
+</div>
+</div>
+<div class="mt-auto">
+<button class="w-full bg-primary text-on-primary font-label-md text-label-sm py-2 px-3 rounded-lg hover:bg-primary-container transition-colors shadow-sm flex justify-center items-center gap-1.5"><span class="material-symbols-outlined text-[16px]">search</span>Analisar Cluster</button>
+</div>
+</div>
+<!-- Cluster Card 2 (Compact) -->
+<div class="bg-surface-container-lowest rounded-xl p-4 shadow-sm border border-outline-variant/30 hover:border-primary/50 transition-colors flex flex-col h-full relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-20 h-20 bg-tertiary-fixed/20 rounded-bl-full -z-10 transition-transform group-hover:scale-110"></div>
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline-sm text-body-lg text-primary font-bold">Inscrição Indevida - Banco Y</h4>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm px-2 py-0.5 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+Médio Potencial
+</span>
+</div>
+<div class="grid grid-cols-2 gap-2 mb-3">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Processos Similares</p>
+<p class="font-headline-md text-headline-sm font-bold text-on-background">89</p>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Acordos Históricos</p>
+<p class="font-headline-md text-headline-sm text-tertiary font-bold">62%</p>
+</div>
+<div class="col-span-2 border-t border-outline-variant/30 pt-2">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Valor Médio de Acordo</p>
+<p class="font-body-md text-body-sm text-on-background font-medium">R$ 1.200,00 - R$ 2.500,00</p>
+</div>
+</div>
+<div class="mt-auto">
+<button class="w-full border border-primary text-primary font-label-md text-label-sm py-2 px-3 rounded-lg hover:bg-surface-container transition-colors flex justify-center items-center gap-1.5">
+Analisar Cluster
+<span class="material-symbols-outlined text-[16px]">search</span>
+</button>
+</div>
+</div></div>
+</div>
+<!-- Top Similar Cases List -->
+<div class="">
+<div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-stack-sm">
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-headline-md text-headline-md text-on-background flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">handshake</span>
+          Processos da Unidade com Alto Potencial de Acordo
+        </h3>
+<span class="bg-secondary-container text-on-secondary-container font-label-sm text-label-sm px-2.5 py-0.5 rounded-full font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">bolt</span>
+          Fase Pré-Sentença
+        </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+        Processos ativos em trâmite na <span class="font-bold text-primary">1ª Vara Cível de Boa Vista</span> identificados pela IA para conciliação antes da prolação de sentença, priorizados por probabilidade de composição.
+      </p>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Ordenado por:</span>
+<span class="bg-surface-container-highest text-primary font-label-sm text-label-sm px-2.5 py-1 rounded-md font-bold flex items-center gap-1 border border-outline-variant/50">
+<span class="material-symbols-outlined text-[14px]">arrow_downward</span>
+        Possibilidade de Acordo (%)
+      </span>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant overflow-hidden mt-4">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container border-b border-outline-variant/50">
+<th class="p-4 font-label-md text-label-md text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span class="">Número do Processo &amp; Partes</span>
+</div>
+</th>
+<th class="p-4 font-label-md text-label-md text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span class="">Classe / Assunto</span>
+</div>
+</th>
+<th class="p-4 font-label-md text-label-md text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span class="">Cluster Temático</span>
+</div>
+</th>
+<th class="p-4 font-label-md text-label-md text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span class="">Fase Processual (Sem Sentença)</span>
+</div>
+</th>
+<th class="p-4 font-label-md text-label-md text-on-surface-variant">
+<div class="flex items-center gap-1 text-primary font-bold">
+<span class="">Possibilidade de Acordo</span>
+<span class="material-symbols-outlined text-[16px]">arrow_downward</span>
+</div>
+</th>
+<th class="p-4 font-label-md text-label-md text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span class="">Valor Sugerido</span>
+</div>
+</th>
+<th class="p-4 font-label-md text-label-md text-on-surface-variant text-center">
+<span class="">Ação Rápida</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<!-- Linha 1: 96% -->
+<tr class="border-b border-outline-variant/30 hover:bg-primary/5 transition-colors group">
+<td class="p-4">
+<p class="font-body-sm text-body-sm text-primary font-bold hover:underline cursor-pointer">0831452-90.2024.8.23.0010</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Autor: Marcos Silva Santos</p>
+<p class="font-label-sm text-label-sm text-outline">Réu: Cia Aérea Nordeste Linhas</p>
+</td>
+<td class="p-4 font-body-sm text-body-sm text-on-surface">
+<span class="font-medium">Procedimento Comum Cível</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Cancelamento de Voo / Dano Moral</p>
+</td>
+<td class="p-4">
+<span class="bg-surface-container text-on-surface font-label-sm text-label-sm px-2 py-1 rounded-md border border-outline-variant/40">
+                Atraso de Voo - Companhia X
+              </span>
+</td>
+<td class="p-4">
+<span class="bg-tertiary-fixed/30 text-tertiary font-label-sm text-label-sm px-2.5 py-1 rounded-md font-medium flex items-center gap-1 w-fit border border-tertiary/20">
+<span class="material-symbols-outlined text-[14px]">pending_actions</span>
+                Contestação Apresentada - Sem Sentença
+              </span>
+</td>
+<td class="p-4">
+<div class="flex flex-col gap-1">
+<span class="bg-secondary-container text-on-secondary-container font-label-sm text-label-sm px-2.5 py-1 rounded-full font-bold flex items-center gap-1 w-fit">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+                  96% (Crítico / Iminente)
+                </span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">Similaridade de 99% com precedentes</span>
+</div>
+</td>
+<td class="p-4">
+<p class="font-body-sm text-body-sm font-bold text-on-background">R$ 4.200,00</p>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Faixa: R$ 3,8k - 4,6k</span>
+</td>
+<td class="p-4 text-center">
+<div class="flex items-center justify-center gap-2">
+<button class="bg-secondary text-on-secondary hover:opacity-90 font-label-sm text-label-sm py-1.5 px-3 rounded-lg shadow-sm flex items-center gap-1.5 transition-all" title="Ver Rede de Similaridade"><span class="material-symbols-outlined text-[16px]">hub</span>Rede de Similaridade</button>
+<button class="border border-outline-variant hover:bg-surface-container text-primary font-label-sm text-label-sm py-1.5 px-2.5 rounded-lg transition-colors" title="Visualizar Detalhes">
+<span class="material-symbols-outlined text-[15px]">visibility</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Linha 2: 94% -->
+<tr class="border-b border-outline-variant/30 hover:bg-primary/5 transition-colors group">
+<td class="p-4">
+<p class="font-body-sm text-body-sm text-primary font-bold hover:underline cursor-pointer">0829871-11.2024.8.23.0010</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Autora: Larissa Medeiros Albuquerque</p>
+<p class="font-label-sm text-label-sm text-outline">Réu: Global Air Transportes S/A</p>
+</td>
+<td class="p-4 font-body-sm text-body-sm text-on-surface">
+<span class="font-medium">Juizado Especial Cível</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Extravio Temporário de Bagagem</p>
+</td>
+<td class="p-4">
+<span class="bg-surface-container text-on-surface font-label-sm text-label-sm px-2 py-1 rounded-md border border-outline-variant/40">
+                Atraso de Voo - Companhia X
+              </span>
+</td>
+<td class="p-4">
+<span class="bg-secondary-container/40 text-on-secondary-container font-label-sm text-label-sm px-2.5 py-1 rounded-md font-medium flex items-center gap-1 w-fit border border-secondary/20">
+<span class="material-symbols-outlined text-[14px]">event_available</span>
+                Aguardando Audiência / Instrução - Sem Sentença
+              </span>
+</td>
+<td class="p-4">
+<div class="flex flex-col gap-1">
+<span class="bg-secondary-container text-on-secondary-container font-label-sm text-label-sm px-2.5 py-1 rounded-full font-bold flex items-center gap-1 w-fit">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+                  94% (Muito Alta)
+                </span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">Similaridade de 95%</span>
+</div>
+</td>
+<td class="p-4">
+<p class="font-body-sm text-body-sm font-bold text-on-background">R$ 3.600,00</p>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Faixa: R$ 3,2k - 4,0k</span>
+</td>
+<td class="p-4 text-center">
+<div class="flex items-center justify-center gap-2">
+<button class="bg-secondary text-on-secondary hover:opacity-90 font-label-sm text-label-sm py-1.5 px-3 rounded-lg shadow-sm flex items-center gap-1.5 transition-all" title="Ver Rede de Similaridade"><span class="material-symbols-outlined text-[16px]">hub</span>Rede de Similaridade</button>
+<button class="border border-outline-variant hover:bg-surface-container text-primary font-label-sm text-label-sm py-1.5 px-2.5 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-[15px]">visibility</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Linha 3: 91% -->
+<tr class="border-b border-outline-variant/30 hover:bg-primary/5 transition-colors group">
+<td class="p-4">
+<p class="font-body-sm text-body-sm text-primary font-bold hover:underline cursor-pointer">0824401-43.2024.8.23.0010</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Autor: Roberto C. Vasconcelos</p>
+<p class="font-label-sm text-label-sm text-outline">Réu: Banco Nacional de Financiamento</p>
+</td>
+<td class="p-4 font-body-sm text-body-sm text-on-surface">
+<span class="font-medium">Ação Declaratória de Inexistência de Débito</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Inscrição Indevida em Órgão Restritivo</p>
+</td>
+<td class="p-4">
+<span class="bg-surface-container text-on-surface font-label-sm text-label-sm px-2 py-1 rounded-md border border-outline-variant/40">
+                Inscrição Indevida - Banco Y
+              </span>
+</td>
+<td class="p-4">
+<span class="bg-tertiary-fixed/30 text-tertiary font-label-sm text-label-sm px-2.5 py-1 rounded-md font-medium flex items-center gap-1 w-fit border border-tertiary/20">
+<span class="material-symbols-outlined text-[14px]">rate_review</span>
+                Fase: Réplica - Sem Sentença
+              </span>
+</td>
+<td class="p-4">
+<div class="flex flex-col gap-1">
+<span class="bg-secondary-container text-on-secondary-container font-label-sm text-label-sm px-2.5 py-1 rounded-full font-bold flex items-center gap-1 w-fit">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                  91% (Alta)
+                </span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">Similaridade de 93%</span>
+</div>
+</td>
+<td class="p-4">
+<p class="font-body-sm text-body-sm font-bold text-on-background">R$ 2.400,00</p>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Exclusão + Indenização</span>
+</td>
+<td class="p-4 text-center">
+<div class="flex items-center justify-center gap-2">
+<button class="bg-secondary text-on-secondary hover:opacity-90 font-label-sm text-label-sm py-1.5 px-3 rounded-lg shadow-sm flex items-center gap-1.5 transition-all" title="Ver Rede de Similaridade"><span class="material-symbols-outlined text-[16px]">hub</span>Rede de Similaridade</button>
+<button class="border border-outline-variant hover:bg-surface-container text-primary font-label-sm text-label-sm py-1.5 px-2.5 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-[15px]">visibility</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Linha 4: 88% -->
+<tr class="border-b border-outline-variant/30 hover:bg-primary/5 transition-colors group">
+<td class="p-4">
+<p class="font-body-sm text-body-sm text-primary font-bold hover:underline cursor-pointer">0821098-72.2024.8.23.0010</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Autora: Camila de Souza Braga</p>
+<p class="font-label-sm text-label-sm text-outline">Réu: Supermercado e Varejo Prime</p>
+</td>
+<td class="p-4 font-body-sm text-body-sm text-on-surface">
+<span class="font-medium">Procedimento Comum Cível</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Vício do Produto e Devolução de Quantia</p>
+</td>
+<td class="p-4">
+<span class="bg-surface-container text-on-surface font-label-sm text-label-sm px-2 py-1 rounded-md border border-outline-variant/40">
+                Relação de Consumo - Vício Produto
+              </span>
+</td>
+<td class="p-4">
+<span class="bg-tertiary-fixed/30 text-tertiary font-label-sm text-label-sm px-2.5 py-1 rounded-md font-medium flex items-center gap-1 w-fit border border-tertiary/20">
+<span class="material-symbols-outlined text-[14px]">pending_actions</span>
+                Contestação Apresentada - Sem Sentença
+              </span>
+</td>
+<td class="p-4">
+<div class="flex flex-col gap-1">
+<span class="bg-secondary-container/80 text-on-secondary-container font-label-sm text-label-sm px-2.5 py-1 rounded-full font-bold flex items-center gap-1 w-fit">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                  88% (Alta)
+                </span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">Similaridade de 89%</span>
+</div>
+</td>
+<td class="p-4">
+<p class="font-body-sm text-body-sm font-bold text-on-background">R$ 1.850,00</p>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Substituição + Danos</span>
+</td>
+<td class="p-4 text-center">
+<div class="flex items-center justify-center gap-2">
+<button class="bg-secondary text-on-secondary hover:opacity-90 font-label-sm text-label-sm py-1.5 px-3 rounded-lg shadow-sm flex items-center gap-1.5 transition-all" title="Ver Rede de Similaridade"><span class="material-symbols-outlined text-[16px]">hub</span>Rede de Similaridade</button>
+<button class="border border-outline-variant hover:bg-surface-container text-primary font-label-sm text-label-sm py-1.5 px-2.5 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-[15px]">visibility</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Linha 5: 85% -->
+<tr class="border-b border-outline-variant/30 hover:bg-primary/5 transition-colors group">
+<td class="p-4">
+<p class="font-body-sm text-body-sm text-primary font-bold hover:underline cursor-pointer">0819445-56.2024.8.23.0010</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Autor: Thiago Mendes Nogueira</p>
+<p class="font-label-sm text-label-sm text-outline">Réu: Operadora Móvel Brasil Telecom</p>
+</td>
+<td class="p-4 font-body-sm text-body-sm text-on-surface">
+<span class="font-medium">Juizado Especial Cível</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Cobrança Indevida / Interrupção de Linha</p>
+</td>
+<td class="p-4">
+<span class="bg-surface-container text-on-surface font-label-sm text-label-sm px-2 py-1 rounded-md border border-outline-variant/40">
+                Telefonia - Cobrança Indevida
+              </span>
+</td>
+<td class="p-4">
+<span class="bg-secondary-container/40 text-on-secondary-container font-label-sm text-label-sm px-2.5 py-1 rounded-md font-medium flex items-center gap-1 w-fit border border-secondary/20">
+<span class="material-symbols-outlined text-[14px]">event_available</span>
+                Aguardando Audiência / Instrução - Sem Sentença
+              </span>
+</td>
+<td class="p-4">
+<div class="flex flex-col gap-1">
+<span class="bg-secondary-container/70 text-on-secondary-container font-label-sm text-label-sm px-2.5 py-1 rounded-full font-bold flex items-center gap-1 w-fit">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                  85% (Alta)
+                </span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">Similaridade de 87%</span>
+</div>
+</td>
+<td class="p-4">
+<p class="font-body-sm text-body-sm font-bold text-on-background">R$ 1.500,00</p>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Restituição em dobro</span>
+</td>
+<td class="p-4 text-center">
+<div class="flex items-center justify-center gap-2">
+<button class="bg-secondary text-on-secondary hover:opacity-90 font-label-sm text-label-sm py-1.5 px-3 rounded-lg shadow-sm flex items-center gap-1.5 transition-all" title="Ver Rede de Similaridade"><span class="material-symbols-outlined text-[16px]">hub</span>Rede de Similaridade</button>
+<button class="border border-outline-variant hover:bg-surface-container text-primary font-label-sm text-label-sm py-1.5 px-2.5 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-[15px]">visibility</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Linha 6: 82% -->
+<tr class="hover:bg-primary/5 transition-colors group">
+<td class="p-4">
+<p class="font-body-sm text-body-sm text-primary font-bold hover:underline cursor-pointer">0816320-38.2024.8.23.0010</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Autor: Gilberto Castro Lima</p>
+<p class="font-label-sm text-label-sm text-outline">Réu: Administradora de Cartões Segura</p>
+</td>
+<td class="p-4 font-body-sm text-body-sm text-on-surface">
+<span class="font-medium">Procedimento Comum Cível</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Fraude Bancária / Golpe do PIX</p>
+</td>
+<td class="p-4">
+<span class="bg-surface-container text-on-surface font-label-sm text-label-sm px-2 py-1 rounded-md border border-outline-variant/40">
+                Inscrição Indevida - Banco Y
+              </span>
+</td>
+<td class="p-4">
+<span class="bg-tertiary-fixed/30 text-tertiary font-label-sm text-label-sm px-2.5 py-1 rounded-md font-medium flex items-center gap-1 w-fit border border-tertiary/20">
+<span class="material-symbols-outlined text-[14px]">rate_review</span>
+                Fase: Réplica - Sem Sentença
+              </span>
+</td>
+<td class="p-4">
+<div class="flex flex-col gap-1">
+<span class="bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm px-2.5 py-1 rounded-full font-bold flex items-center gap-1 w-fit">
+<span class="material-symbols-outlined text-[14px]">trending_flat</span>
+                  82% (Média-Alta)
+                </span>
+<span class="font-label-sm text-label-sm text-tertiary font-medium">Similaridade de 82%</span>
+</div>
+</td>
+<td class="p-4">
+<p class="font-body-sm text-body-sm font-bold text-on-background">R$ 3.100,00</p>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Faixa: R$ 2,5k - 3,5k</span>
+</td>
+<td class="p-4 text-center">
+<div class="flex items-center justify-center gap-2">
+<button class="bg-secondary text-on-secondary hover:opacity-90 font-label-sm text-label-sm py-1.5 px-3 rounded-lg shadow-sm flex items-center gap-1.5 transition-all" title="Ver Rede de Similaridade"><span class="material-symbols-outlined text-[16px]">hub</span>Rede de Similaridade</button>
+<button class="border border-outline-variant hover:bg-surface-container text-primary font-label-sm text-label-sm py-1.5 px-2.5 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-[15px]">visibility</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</main>
+<script src="prototype.js"></script></body></html>

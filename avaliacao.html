@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html class="light" lang="pt-BR" style=""><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Explorador de Similaridade e Acordos - InsightErr</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary": "#ffffff",
+                      "surface": "#f8f9fa",
+                      "surface-container-lowest": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "on-primary-fixed": "#00164e",
+                      "primary": "#00236f",
+                      "inverse-surface": "#2e3132",
+                      "tertiary-container": "#5c3800",
+                      "on-tertiary-fixed-variant": "#653e00",
+                      "error-container": "#ffdad6",
+                      "inverse-primary": "#b6c4ff",
+                      "primary-container": "#1e3a8a",
+                      "on-error": "#ffffff",
+                      "inverse-on-surface": "#f0f1f2",
+                      "on-primary-container": "#90a8ff",
+                      "primary-fixed": "#dce1ff",
+                      "secondary-fixed": "#6ffbbe",
+                      "surface-tint": "#4059aa",
+                      "on-secondary-fixed": "#002113",
+                      "on-background": "#191c1d",
+                      "on-secondary": "#ffffff",
+                      "surface-container-high": "#e7e8e9",
+                      "on-tertiary-fixed": "#2a1700",
+                      "on-surface-variant": "#444651",
+                      "on-secondary-fixed-variant": "#005236",
+                      "on-primary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "primary-fixed-dim": "#b6c4ff",
+                      "surface-container": "#edeeef",
+                      "tertiary-fixed": "#ffddb8",
+                      "on-primary-fixed-variant": "#264191",
+                      "surface-dim": "#d9dadb",
+                      "on-secondary-container": "#00714d",
+                      "on-surface": "#191c1d",
+                      "background": "#f8f9fa",
+                      "secondary-fixed-dim": "#4edea3",
+                      "surface-variant": "#e1e3e4",
+                      "surface-bright": "#f8f9fa",
+                      "secondary": "#006c49",
+                      "outline": "#757682",
+                      "secondary-container": "#6cf8bb",
+                      "surface-container-low": "#f3f4f5",
+                      "outline-variant": "#c5c5d3",
+                      "on-tertiary-container": "#ef9900",
+                      "surface-container-highest": "#e1e3e4",
+                      "tertiary-fixed-dim": "#ffb95f",
+                      "tertiary": "#3e2400"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "container-padding": "24px",
+                      "stack-lg": "32px",
+                      "unit": "8px",
+                      "gutter": "16px",
+                      "stack-sm": "8px",
+                      "stack-md": "16px"
+              },
+              "fontFamily": {
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ],
+                      "headline-xl": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "headline-lg": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-md": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-sm": [
+                              "11px",
+                              {
+                                      "lineHeight": "14px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-xl": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .filled-icon { font-variation-settings: 'FILL' 1; }
+        
+        /* Custom Scrollbar for sidebars/tables if needed */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #c5c5d3; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #757682; }
+    </style>
+<link href="prototype.css" rel="stylesheet"/></head>
+<body class="bg-surface text-on-surface flex min-h-screen" data-prototype-page="avaliacao">
+<!-- SideNavBar (Desktop) -->
+<nav class="hidden md:flex bg-surface-container-lowest shadow-sm fixed left-0 top-0 h-full w-64 flex-col border-r border-outline-variant z-40 transition-all duration-200 ease-in-out">
+<div class="p-container-padding flex flex-col gap-stack-md h-full">
+<div class="flex items-center gap-unit mb-stack-lg">
+<img alt="InsightErr Logo" class="w-10 h-10 rounded-lg object-contain bg-surface-container-lowest p-0.5 border border-outline-variant/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6y3NNCxPLuttU_lQqcOwCu3nybTqp2Tk_Mf3wmz6-zDLvUflzaS4HwUnnYlut3iGyDRNek4jC62SsmECfUjXpaFigNjHMtHQ8IRXeHFa-4xJAMqATPTZFHTqMCSPAplKtDGICGeKxGqvwfg9rkoEv_WJdFLIabNs2Yd-QMVhiNV-YoA7J5DKKVXOHkT-_MHJWcSarC5onIbqHgxTg7BO85x4fY0HgxtrSP_DAY0KalnS1gpRbCWTxUuZMoxtUBh5rmQ"/>
+<div>
+<h1 class="font-headline-sm text-headline-md font-black text-primary">InsightErr</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Analítica Jurídica</p>
+</div>
+</div>
+<button class="bg-primary text-on-primary w-full py-2 px-4 rounded-lg font-label-md text-label-md flex items-center justify-center gap-2 hover:opacity-90 transition-opacity mb-4 shadow-sm">
+<span class="material-symbols-outlined filled-icon" style="font-size: 18px;">add</span>
+                Nova Análise
+            </button>
+<div class="flex flex-col gap-unit flex-1">
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">account_tree</span>
+                    Explorador de Similaridades
+                </a>
+<a class="flex items-center gap-3 p-3 bg-secondary-container text-on-secondary-container rounded-lg font-label-md text-label-md font-bold transition-all duration-200 ease-in-out" href="#"><span class="material-symbols-outlined">gavel</span>
+
+                    Avaliação de Processo
+                </a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">public</span>
+                    Oportunidades Nacionais
+                </a>
+</div>
+<div class="flex flex-col gap-unit mt-auto border-t border-outline-variant pt-4">
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">help</span>
+                    Suporte
+                </a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">logout</span>
+                    Sair
+                </a>
+</div>
+</div>
+</nav>
+<!-- TopNavBar (Mobile) -->
+<header class="md:hidden flex justify-between items-center w-full px-container-padding h-16 fixed top-0 z-50 bg-surface border-b border-outline-variant flat no shadows">
+<div class="flex items-center gap-2">
+<img alt="Avatar do Usuário Jurídico" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7UWG7FlOc5qB8NYrdu6yg3Aec4alAGaBfiIOf4GkHj4DvDGb0E100OgU_97ye9i2Kno6GNUetMhWObh2AdZPoe8rQMTtoncqaNeTOb5QRoI-A0YY74QB7lIgilkwTXRvl38E1uyTmN7gdK3eCwnGDlOPGD2xgeSKe-ZzIk99rOdHCxirVRrb4fjiVCldC-1omMToQwVe6S_JioihGzDjmZPt6-zk4TNlO4T_jxOz-v2FPC_aqHEoYP5nrghm44hAnWg"/>
+<span class="font-headline-md text-headline-md font-bold text-primary">InsightErr</span>
+</div>
+<div class="flex items-center gap-4 text-primary">
+<button class="hover:bg-surface-container-high transition-colors p-2 rounded-full opacity-80 duration-200">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="hover:bg-surface-container-high transition-colors p-2 rounded-full opacity-80 duration-200">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 md:ml-64 pt-16 md:pt-0 min-h-screen bg-background">
+<div class="max-w-7xl mx-auto p-container-padding"><!-- Header Section -->
+<div class="mb-stack-lg">
+<div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-unit">
+<span class="material-symbols-outlined text-primary text-3xl">fact_check</span>
+<h2 class="font-headline-xl text-headline-xl text-on-background">Avaliação de Processo &amp; Similaridade de Acordos</h2>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Análise individual do caso em pauta, seu cluster temático correspondente e precedentes homologados com alto grau de afinidade.</p>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-lowest border border-outline-variant/50 p-2 rounded-xl shadow-sm">
+<div class="flex items-center justify-center w-8 h-8 rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-[20px]">account_balance</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Unidade Judiciária</span>
+<div class="relative flex items-center cursor-pointer">
+<select class="bg-transparent font-label-md text-label-md font-bold text-primary focus:outline-none cursor-pointer pr-6 py-0.5 border-none"><option selected="" value="vc-unica">Vara Cível Única - TJRR</option>
+<option value="1vc-bv">1ª Vara Cível de Boa Vista - TJRR</option>
+<option value="2vc-bv">2ª Vara Cível de Boa Vista - TJRR</option>
+<option value="jec-bv">Juizado Especial Cível - TJRR</option>
+<option value="cejusc-bv">CEJUSC Boa Vista - TJRR</option>
+<option value="turma-rec">Turma Recursal Mista - TJRR</option></select>
+<span class="material-symbols-outlined text-[16px] text-primary absolute right-0 pointer-events-none">expand_more</span>
+</div>
+</div>
+<div class="hidden sm:flex items-center gap-1 bg-secondary-container/50 text-on-secondary-container px-2 py-1 rounded-md text-label-sm font-medium">
+<span class="material-symbols-outlined text-[14px]">verified</span>Ativa
+      </div>
+</div>
+</div>
+</div>
+<!-- 2. Card de Destaque: Processo em Análise (Caso de Referência) -->
+<div class="bg-surface-container-lowest border border-outline-variant/40 rounded-xl p-4 shadow-sm mb-stack-lg flex flex-col md:flex-row items-stretch md:items-center gap-3">
+<div class="flex items-center gap-2 text-primary pl-1">
+<span class="material-symbols-outlined text-[24px]">manage_search</span>
+<div class="hidden lg:flex flex-col pr-2 border-r border-outline-variant/30">
+<span class="font-label-sm text-label-sm font-bold uppercase tracking-wider text-primary">Nova Análise</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Base PROJUDI TJRR
+      </span>
+</div>
+</div>
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+<input class="w-full pl-10 pr-28 py-2.5 bg-surface-container-low border border-outline-variant/50 rounded-lg font-body-sm text-on-surface focus:outline-none focus:border-primary transition-colors placeholder:text-on-surface-variant/70" placeholder="Pesquisar outro processo no TJRR (número CNJ 08XXXXX-XX.202X.8.23.XXXX ou parte)..." type="text"/>
+<div class="absolute right-2.5 top-1/2 -translate-y-1/2 hidden sm:flex items-center gap-1 bg-surface-container text-on-surface-variant px-2 py-0.5 rounded text-label-sm border border-outline-variant/30 pointer-events-none">
+<span class="material-symbols-outlined text-[13px] text-secondary">cloud_done</span>
+<span class="text-[11px] font-medium">TJRR Integrado</span>
+</div>
+</div>
+<button class="bg-primary text-on-primary px-4 py-2.5 rounded-lg font-label-md text-label-md flex items-center justify-center gap-2 hover:opacity-90 transition-opacity shadow-sm whitespace-nowrap">
+<span class="material-symbols-outlined text-[18px]">auto_awesome</span>
+<span class="">Analisar Processo</span>
+</button>
+</div><div class="bg-surface-container-lowest rounded-xl p-container-padding shadow-sm mb-stack-lg border-2 border-primary/20 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full -z-10 pointer-events-none"></div>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-4 border-b border-outline-variant/30 mb-4">
+<div class="flex items-center gap-3">
+<div class="p-2.5 bg-primary text-on-primary rounded-lg flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined">gavel</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Processo Paradigma Alvo</span>
+<span class="bg-primary text-on-primary font-label-sm text-label-sm px-2.5 py-0.5 rounded-full font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">radio_button_checked</span>
+            Processo Alvo em Análise
+          </span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-primary font-bold tracking-tight mt-0.5">Nº 0812345-67.2023.8.23.0010</h3>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="bg-tertiary-fixed/30 text-on-tertiary-fixed border border-tertiary/20 px-3 py-1 rounded-lg text-label-md font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">pending_actions</span>
+        Fase: Aguardando Minuta de Sentença / Análise Prévia
+      </span>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="p-3 bg-surface-container-low rounded-lg border border-outline-variant/20">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1 uppercase tracking-wider">Classe / Assunto Principal</p>
+<p class="font-body-sm text-body-sm text-on-background font-semibold">Indenização por Danos Morais e Materiais</p>
+<p class="font-label-sm text-label-sm text-primary font-medium mt-0.5">Atraso em Voo Nacional (&gt;14h)</p>
+</div>
+<div class="p-3 bg-surface-container-low rounded-lg border border-outline-variant/20">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1 uppercase tracking-wider">Partes Processuais</p>
+<p class="font-body-sm text-body-sm text-on-background font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-secondary">person</span> Autora: Maria Oliveira
+      </p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-0.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-primary">domain</span> Réu: Cia Aérea X
+      </p>
+</div>
+<div class="p-3 bg-surface-container-low rounded-lg border border-outline-variant/20">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1 uppercase tracking-wider">Valor Atribuído à Causa</p>
+<p class="font-headline-md text-headline-md text-on-background font-bold">R$ 8.500,00</p>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Pedido inicial cumulado</span>
+</div>
+<div class="p-3 bg-surface-container-low rounded-lg border border-outline-variant/20 flex flex-col justify-between">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1 uppercase tracking-wider">Potencial Conciliatório Geral</p>
+<div class="flex items-center gap-2">
+<span class="font-headline-md text-headline-md text-secondary font-black">Alto (87%)</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">verified</span>
+</div>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Receptividade favorável da reclamada</p>
+</div>
+</div>
+</div>
+<!-- 3. Seção do Cluster Correspondente -->
+<div class="bg-surface-container-lowest rounded-xl p-container-padding shadow-sm mb-stack-lg border border-outline-variant/30">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-4 border-b border-outline-variant/20">
+<div class="flex items-start gap-3">
+<div class="p-2 bg-secondary-container text-on-secondary-container rounded-lg">
+<span class="material-symbols-outlined">hub</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Cluster Temático Vinculado</span>
+<span class="bg-secondary-container text-on-secondary-container font-label-sm text-label-sm px-2 py-0.5 rounded-full font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">auto_awesome</span> 96% de Afinidade com o Caso
+          </span>
+</div>
+<h4 class="font-headline-md text-headline-md text-primary font-bold mt-1">Atraso de Voo &amp; Falha de Assistência Material (Companhia X)</h4>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-4">
+<div class="p-3.5 bg-surface-container-low rounded-xl border border-secondary/20 flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container/50 text-secondary flex items-center justify-center font-bold">
+<span class="material-symbols-outlined text-[22px]">handshake</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Taxa de Acordos Homologados</p>
+<p class="font-headline-md text-headline-md text-secondary font-bold">87% dos casos</p>
+</div>
+</div>
+<div class="p-3.5 bg-surface-container-low rounded-xl border border-outline-variant/30 flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold">
+<span class="material-symbols-outlined text-[22px]">speed</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Tempo Médio de Resolução</p>
+<p class="font-headline-md text-headline-md text-primary font-bold">14 dias com acordo</p>
+</div>
+</div>
+<div class="p-3.5 bg-surface-container-low rounded-xl border border-outline-variant/30 flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed/30 text-tertiary flex items-center justify-center font-bold">
+<span class="material-symbols-outlined text-[22px]">payments</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Faixa Média de Acordo Homologado</p>
+<p class="font-headline-md text-headline-md text-on-background font-bold">R$ 3.800 - R$ 4.500</p>
+</div>
+</div>
+</div>
+<div class="p-3.5 bg-primary/5 rounded-lg border border-primary/20 flex items-start gap-2.5">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">lightbulb</span>
+<p class="font-body-sm text-body-sm text-on-surface">
+<strong class="text-primary font-semibold">Resumo Temático do Agrupamento:</strong> Fatos convergentes de atraso noturno sem fornecimento adequado de hotel ou alimentação tempestiva, em conformidade com jurisprudência consolidada nas Turmas Recursais do TJRR com alta receptividade a propostas conciliatórias antes ou durante o saneamento processual.
+    </p>
+</div>
+</div>
+<!-- 4. Seção Principal: Processos Similares com Acordo Homologado -->
+<div class="mb-stack-lg">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-stack-md">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-background flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">verified_user</span>
+        Processos Similares com Acordo Homologado
+      </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Precedentes judiciais do TJRR com identidade fática e desfecho consensual homologado.</p>
+</div>
+<div class="flex items-center gap-2 self-start md:self-auto">
+<span class="bg-surface-container text-on-surface-variant px-3 py-1.5 rounded-lg font-label-sm text-label-sm font-semibold flex items-center gap-1.5 border border-outline-variant/40">
+<span class="material-symbols-outlined text-[16px] text-primary">sort</span>
+        Ordenado por: Maior Grau de Similaridade
+      </span>
+</div>
+</div>
+<!-- Filtros e Controles -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
+<div class="relative col-span-1 sm:col-span-2">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-lowest border border-outline-variant/50 rounded-lg font-body-sm text-on-surface focus:outline-none focus:border-primary transition-colors" placeholder="Filtrar por número do processo, termos ou parte ré..." type="text"/>
+</div>
+<div class="relative">
+<select class="w-full py-2 px-3 bg-surface-container-lowest border border-outline-variant/50 rounded-lg font-body-sm text-on-surface focus:outline-none focus:border-primary transition-colors cursor-pointer">
+<option value="all">Todos os valores de acordo</option>
+<option value="faixa-1">Até R$ 3.500,00</option>
+<option selected="" value="faixa-2">R$ 3.500,00 a R$ 5.000,00</option>
+<option value="faixa-3">Acima de R$ 5.000,00</option>
+</select>
+</div>
+</div>
+<!-- Tabela de Precedentes Homologados -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container border-b border-outline-variant/50">
+<th class="p-4 font-label-md text-label-md text-on-surface-variant">Processo Paradigmático</th>
+<th class="p-4 font-label-md text-label-md text-on-surface-variant">Grau de Similaridade</th>
+<th class="p-4 font-label-md text-label-md text-on-surface-variant">Fatos &amp; Teses Coincidentes</th>
+<th class="p-4 font-label-md text-label-md text-on-surface-variant">Valor Homologado</th>
+<th class="p-4 font-label-md text-label-md text-on-surface-variant text-right">Ações</th>
+</tr>
+</thead>
+<tbody>
+<!-- Linha 1 -->
+<tr class="border-b border-outline-variant/30 hover:bg-primary/5 transition-colors group">
+<td class="p-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">description</span>
+<div>
+<p class="font-body-sm text-body-sm text-primary font-bold cursor-pointer hover:underline">0804521-19.2023.8.23.0010</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">1ª Vara Cível de Boa Vista</p>
+</div>
+</div>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-2">
+<span class="bg-secondary-container text-on-secondary-container font-label-sm text-label-sm px-2.5 py-1 rounded-md font-bold border border-secondary/20">98%</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">Altíssima</span>
+</div>
+</td>
+<td class="p-4 max-w-xs">
+<p class="font-body-sm text-body-sm text-on-background font-medium">Atraso &gt;14h sem acomodação</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Falta de voucher alimentar + Danos morais presumidos</p>
+</td>
+<td class="p-4">
+<p class="font-headline-md text-headline-md text-secondary font-bold">R$ 4.200,00</p>
+<span class="font-label-sm text-label-sm text-on-secondary-container bg-secondary-container/30 px-1.5 py-0.5 rounded">Homologado</span>
+</td>
+<td class="p-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="px-2.5 py-1.5 bg-surface-container border border-outline-variant/60 hover:bg-surface-container-high text-on-surface rounded font-label-sm text-label-sm transition-colors flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">article</span> Ver Petição Inicial</button>
+<button class="px-2.5 py-1.5 bg-secondary-container text-on-secondary-container hover:opacity-90 rounded font-label-sm text-label-sm transition-colors flex items-center gap-1 font-semibold shadow-sm"><svg class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24"><path d="M10.85 12.65L12 11.5l-1.15-1.15l1.075-1.075l-.7-.725l-2.15 2.15a.48.48 0 0 0 0 .7l.7.725l1.075-1.075l-1.15-1.15l.7-.725l.375.375Zm2.3 2.3l1.15-1.15l-1.075-1.075l.7-.725l2.15 2.15a.48.48 0 0 1 0 .7l-.7.725l-1.075-1.075l1.15 1.15l-.7.725l-.375-.375Zm-4.975-5.975l.7-.7l1.075 1.075l-.7.725l-1.075-1.1Zm8.05 8.05l.7-.725l1.075 1.075l-.7.725l-1.075-1.075Zm4.075-2.075q-.25 0-.475-.087a1.2 1.2 0 0 1-.4-.288l-4.1-4.1q-.45-.45-1.075-.7t-1.325-.25q-.7 0-1.325.25t-1.075.7l-2.7 2.7q-.275.275-.7.275t-.7-.275l-2.825-2.85q-.3-.3-.3-.712t.3-.713l3.65-3.65a.96.96 0 0 1 .713-.3q.412 0 .712.3l.7.7l.725-.7l-.7-.7a1.95 1.95 0 0 0-1.425-.6q-.85 0-1.45.6l-3.65 3.65q-.6.6-.6 1.425t.6 1.425l2.85 2.85q.575.575 1.413.575t1.412-.575l2.7-2.7q.275-.275.7-.425t.9-.15q.475 0 .9.15t.7.425l4.1 4.1q.3.3.7.45t.825.15q.9 0 1.513-.612t.612-1.513q0-.425-.15-.825t-.45-.7ZM1.725 10.975l4.65-4.65q.425-.425 1.025-.575t1.225.05l2.125.7q.4.15.65.5t.25.75q0 .525-.363.888T10.4 8.85l-1.625-.55l-4.9 4.9q-.3.3-.712.3t-.713-.3l-.725-.725q-.3-.3-.3-.712t.3-.713Z"></path></svg>Ver Acordo Homologado</button></div>
+</td>
+</tr>
+<!-- Linha 2 -->
+<tr class="border-b border-outline-variant/30 hover:bg-primary/5 transition-colors group">
+<td class="p-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">description</span>
+<div>
+<p class="font-body-sm text-body-sm text-primary font-bold cursor-pointer hover:underline">0809832-44.2023.8.23.0010</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">2ª Vara Cível de Boa Vista</p>
+</div>
+</div>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-2">
+<span class="bg-secondary-container text-on-secondary-container font-label-sm text-label-sm px-2.5 py-1 rounded-md font-bold border border-secondary/20">96%</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">Alta</span>
+</div>
+</td>
+<td class="p-4 max-w-xs">
+<p class="font-body-sm text-body-sm text-on-background font-medium">Overbooking + Cancelamento noturno</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Ausência de assistência de translado + Falha na reacomodação</p>
+</td>
+<td class="p-4">
+<p class="font-headline-md text-headline-md text-secondary font-bold">R$ 4.500,00</p>
+<span class="font-label-sm text-label-sm text-on-secondary-container bg-secondary-container/30 px-1.5 py-0.5 rounded">Homologado</span>
+</td>
+<td class="p-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="px-2.5 py-1.5 bg-surface-container border border-outline-variant/60 hover:bg-surface-container-high text-on-surface rounded font-label-sm text-label-sm transition-colors flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">article</span> Ver Petição Inicial</button>
+<button class="px-2.5 py-1.5 bg-secondary-container text-on-secondary-container hover:opacity-90 rounded font-label-sm text-label-sm transition-colors flex items-center gap-1 font-semibold shadow-sm"><svg class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24"><path d="M10.85 12.65L12 11.5l-1.15-1.15l1.075-1.075l-.7-.725l-2.15 2.15a.48.48 0 0 0 0 .7l.7.725l1.075-1.075l-1.15-1.15l.7-.725l.375.375Zm2.3 2.3l1.15-1.15l-1.075-1.075l.7-.725l2.15 2.15a.48.48 0 0 1 0 .7l-.7.725l-1.075-1.075l1.15 1.15l-.7.725l-.375-.375Zm-4.975-5.975l.7-.7l1.075 1.075l-.7.725l-1.075-1.1Zm8.05 8.05l.7-.725l1.075 1.075l-.7.725l-1.075-1.075Zm4.075-2.075q-.25 0-.475-.087a1.2 1.2 0 0 1-.4-.288l-4.1-4.1q-.45-.45-1.075-.7t-1.325-.25q-.7 0-1.325.25t-1.075.7l-2.7 2.7q-.275.275-.7.275t-.7-.275l-2.825-2.85q-.3-.3-.3-.712t.3-.713l3.65-3.65a.96.96 0 0 1 .713-.3q.412 0 .712.3l.7.7l.725-.7l-.7-.7a1.95 1.95 0 0 0-1.425-.6q-.85 0-1.45.6l-3.65 3.65q-.6.6-.6 1.425t.6 1.425l2.85 2.85q.575.575 1.413.575t1.412-.575l2.7-2.7q.275-.275.7-.425t.9-.15q.475 0 .9.15t.7.425l4.1 4.1q.3.3.7.45t.825.15q.9 0 1.513-.612t.612-1.513q0-.425-.15-.825t-.45-.7ZM1.725 10.975l4.65-4.65q.425-.425 1.025-.575t1.225.05l2.125.7q.4.15.65.5t.25.75q0 .525-.363.888T10.4 8.85l-1.625-.55l-4.9 4.9q-.3.3-.712.3t-.713-.3l-.725-.725q-.3-.3-.3-.712t.3-.713Z"></path></svg>Ver Acordo Homologado</button></div>
+</td>
+</tr>
+<!-- Linha 3 -->
+<tr class="border-b border-outline-variant/30 hover:bg-primary/5 transition-colors group">
+<td class="p-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">description</span>
+<div>
+<p class="font-body-sm text-body-sm text-primary font-bold cursor-pointer hover:underline">0811204-76.2023.8.23.0010</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Juizado Especial Cível - BV</p>
+</div>
+</div>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-2">
+<span class="bg-secondary-container/60 text-secondary font-label-sm text-label-sm px-2.5 py-1 rounded-md font-bold border border-secondary/20">94%</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">Alta</span>
+</div>
+</td>
+<td class="p-4 max-w-xs">
+<p class="font-body-sm text-body-sm text-on-background font-medium">Atraso conexo de 16h em escala</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Perda de compromisso profissional + Falha de informação</p>
+</td>
+<td class="p-4">
+<p class="font-headline-md text-headline-md text-secondary font-bold">R$ 3.900,00</p>
+<span class="font-label-sm text-label-sm text-on-secondary-container bg-secondary-container/30 px-1.5 py-0.5 rounded">Homologado</span>
+</td>
+<td class="p-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="px-2.5 py-1.5 bg-surface-container border border-outline-variant/60 hover:bg-surface-container-high text-on-surface rounded font-label-sm text-label-sm transition-colors flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">article</span> Ver Petição Inicial</button>
+<button class="px-2.5 py-1.5 bg-secondary-container text-on-secondary-container hover:opacity-90 rounded font-label-sm text-label-sm transition-colors flex items-center gap-1 font-semibold shadow-sm"><svg class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24"><path d="M10.85 12.65L12 11.5l-1.15-1.15l1.075-1.075l-.7-.725l-2.15 2.15a.48.48 0 0 0 0 .7l.7.725l1.075-1.075l-1.15-1.15l.7-.725l.375.375Zm2.3 2.3l1.15-1.15l-1.075-1.075l.7-.725l2.15 2.15a.48.48 0 0 1 0 .7l-.7.725l-1.075-1.075l1.15 1.15l-.7.725l-.375-.375Zm-4.975-5.975l.7-.7l1.075 1.075l-.7.725l-1.075-1.1Zm8.05 8.05l.7-.725l1.075 1.075l-.7.725l-1.075-1.075Zm4.075-2.075q-.25 0-.475-.087a1.2 1.2 0 0 1-.4-.288l-4.1-4.1q-.45-.45-1.075-.7t-1.325-.25q-.7 0-1.325.25t-1.075.7l-2.7 2.7q-.275.275-.7.275t-.7-.275l-2.825-2.85q-.3-.3-.3-.712t.3-.713l3.65-3.65a.96.96 0 0 1 .713-.3q.412 0 .712.3l.7.7l.725-.7l-.7-.7a1.95 1.95 0 0 0-1.425-.6q-.85 0-1.45.6l-3.65 3.65q-.6.6-.6 1.425t.6 1.425l2.85 2.85q.575.575 1.413.575t1.412-.575l2.7-2.7q.275-.275.7-.425t.9-.15q.475 0 .9.15t.7.425l4.1 4.1q.3.3.7.45t.825.15q.9 0 1.513-.612t.612-1.513q0-.425-.15-.825t-.45-.7ZM1.725 10.975l4.65-4.65q.425-.425 1.025-.575t1.225.05l2.125.7q.4.15.65.5t.25.75q0 .525-.363.888T10.4 8.85l-1.625-.55l-4.9 4.9q-.3.3-.712.3t-.713-.3l-.725-.725q-.3-.3-.3-.712t.3-.713Z"></path></svg>Ver Acordo Homologado</button></div>
+</td>
+</tr>
+<!-- Linha 4 -->
+<tr class="border-b border-outline-variant/30 hover:bg-primary/5 transition-colors group">
+<td class="p-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">description</span>
+<div>
+<p class="font-body-sm text-body-sm text-primary font-bold cursor-pointer hover:underline">0807712-32.2023.8.23.0010</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">1ª Vara Cível de Boa Vista</p>
+</div>
+</div>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-2">
+<span class="bg-secondary-container/40 text-secondary font-label-sm text-label-sm px-2.5 py-1 rounded-md font-bold border border-secondary/20">91%</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">Alta</span>
+</div>
+</td>
+<td class="p-4 max-w-xs">
+<p class="font-body-sm text-body-sm text-on-background font-medium">Manutenção não programada de aeronave</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Fortuito interno jurisprudencial + Ausência de voucher</p>
+</td>
+<td class="p-4">
+<p class="font-headline-md text-headline-md text-secondary font-bold">R$ 4.000,00</p>
+<span class="font-label-sm text-label-sm text-on-secondary-container bg-secondary-container/30 px-1.5 py-0.5 rounded">Homologado</span>
+</td>
+<td class="p-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="px-2.5 py-1.5 bg-surface-container border border-outline-variant/60 hover:bg-surface-container-high text-on-surface rounded font-label-sm text-label-sm transition-colors flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">article</span> Ver Petição Inicial</button>
+<button class="px-2.5 py-1.5 bg-secondary-container text-on-secondary-container hover:opacity-90 rounded font-label-sm text-label-sm transition-colors flex items-center gap-1 font-semibold shadow-sm"><svg class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24"><path d="M10.85 12.65L12 11.5l-1.15-1.15l1.075-1.075l-.7-.725l-2.15 2.15a.48.48 0 0 0 0 .7l.7.725l1.075-1.075l-1.15-1.15l.7-.725l.375.375Zm2.3 2.3l1.15-1.15l-1.075-1.075l.7-.725l2.15 2.15a.48.48 0 0 1 0 .7l-.7.725l-1.075-1.075l1.15 1.15l-.7.725l-.375-.375Zm-4.975-5.975l.7-.7l1.075 1.075l-.7.725l-1.075-1.1Zm8.05 8.05l.7-.725l1.075 1.075l-.7.725l-1.075-1.075Zm4.075-2.075q-.25 0-.475-.087a1.2 1.2 0 0 1-.4-.288l-4.1-4.1q-.45-.45-1.075-.7t-1.325-.25q-.7 0-1.325.25t-1.075.7l-2.7 2.7q-.275.275-.7.275t-.7-.275l-2.825-2.85q-.3-.3-.3-.712t.3-.713l3.65-3.65a.96.96 0 0 1 .713-.3q.412 0 .712.3l.7.7l.725-.7l-.7-.7a1.95 1.95 0 0 0-1.425-.6q-.85 0-1.45.6l-3.65 3.65q-.6.6-.6 1.425t.6 1.425l2.85 2.85q.575.575 1.413.575t1.412-.575l2.7-2.7q.275-.275.7-.425t.9-.15q.475 0 .9.15t.7.425l4.1 4.1q.3.3.7.45t.825.15q.9 0 1.513-.612t.612-1.513q0-.425-.15-.825t-.45-.7ZM1.725 10.975l4.65-4.65q.425-.425 1.025-.575t1.225.05l2.125.7q.4.15.65.5t.25.75q0 .525-.363.888T10.4 8.85l-1.625-.55l-4.9 4.9q-.3.3-.712.3t-.713-.3l-.725-.725q-.3-.3-.3-.712t.3-.713Z"></path></svg>Ver Acordo Homologado</button></div>
+</td>
+</tr>
+<!-- Linha 5 -->
+<tr class="hover:bg-primary/5 transition-colors group">
+<td class="p-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">description</span>
+<div>
+<p class="font-body-sm text-body-sm text-primary font-bold cursor-pointer hover:underline">0803154-88.2023.8.23.0010</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">CEJUSC Boa Vista</p>
+</div>
+</div>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-2">
+<span class="bg-tertiary-fixed-dim/30 text-tertiary font-label-sm text-label-sm px-2.5 py-1 rounded-md font-bold border border-tertiary/20">88%</span>
+<span class="font-label-sm text-label-sm text-tertiary font-semibold">Média</span>
+</div>
+</td>
+<td class="p-4 max-w-xs">
+<p class="font-body-sm text-body-sm text-on-background font-medium">Atraso de 12h + Extravio temporário</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Bagagem devolvida em 24h + Indenização extrapatrimonial</p>
+</td>
+<td class="p-4">
+<p class="font-headline-md text-headline-md text-secondary font-bold">R$ 4.300,00</p>
+<span class="font-label-sm text-label-sm text-on-secondary-container bg-secondary-container/30 px-1.5 py-0.5 rounded">Homologado</span>
+</td>
+<td class="p-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="px-2.5 py-1.5 bg-surface-container border border-outline-variant/60 hover:bg-surface-container-high text-on-surface rounded font-label-sm text-label-sm transition-colors flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">article</span> Ver Petição Inicial</button>
+<button class="px-2.5 py-1.5 bg-secondary-container text-on-secondary-container hover:opacity-90 rounded font-label-sm text-label-sm transition-colors flex items-center gap-1 font-semibold shadow-sm"><svg class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24"><path d="M10.85 12.65L12 11.5l-1.15-1.15l1.075-1.075l-.7-.725l-2.15 2.15a.48.48 0 0 0 0 .7l.7.725l1.075-1.075l-1.15-1.15l.7-.725l.375.375Zm2.3 2.3l1.15-1.15l-1.075-1.075l.7-.725l2.15 2.15a.48.48 0 0 1 0 .7l-.7.725l-1.075-1.075l1.15 1.15l-.7.725l-.375-.375Zm-4.975-5.975l.7-.7l1.075 1.075l-.7.725l-1.075-1.1Zm8.05 8.05l.7-.725l1.075 1.075l-.7.725l-1.075-1.075Zm4.075-2.075q-.25 0-.475-.087a1.2 1.2 0 0 1-.4-.288l-4.1-4.1q-.45-.45-1.075-.7t-1.325-.25q-.7 0-1.325.25t-1.075.7l-2.7 2.7q-.275.275-.7.275t-.7-.275l-2.825-2.85q-.3-.3-.3-.712t.3-.713l3.65-3.65a.96.96 0 0 1 .713-.3q.412 0 .712.3l.7.7l.725-.7l-.7-.7a1.95 1.95 0 0 0-1.425-.6q-.85 0-1.45.6l-3.65 3.65q-.6.6-.6 1.425t.6 1.425l2.85 2.85q.575.575 1.413.575t1.412-.575l2.7-2.7q.275-.275.7-.425t.9-.15q.475 0 .9.15t.7.425l4.1 4.1q.3.3.7.45t.825.15q.9 0 1.513-.612t.612-1.513q0-.425-.15-.825t-.45-.7ZM1.725 10.975l4.65-4.65q.425-.425 1.025-.575t1.225.05l2.125.7q.4.15.65.5t.25.75q0 .525-.363.888T10.4 8.85l-1.625-.55l-4.9 4.9q-.3.3-.712.3t-.713-.3l-.725-.725q-.3-.3-.3-.712t.3-.713Z"></path></svg>Ver Acordo Homologado</button></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- 5. Painel de Ação Inferior: Recomendação da IA e Ações Imediatas -->
+</div>
+</main>
+<script src="prototype.js"></script></body></html>
